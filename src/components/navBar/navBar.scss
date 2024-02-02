@@ -1,0 +1,194 @@
+.flex {
+    display: flex!important;
+}
+
+.displayNone {
+    display: none!important;
+}
+
+.mainMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 65%;
+    margin-top: 30px;
+    margin-bottom: 75px;
+    & .mainMenuLeft {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        & h1 {
+            color: var(--text-color);
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: -1.125px;
+            margin-bottom: 6px;
+        }
+        & p {
+            color: var(--p-purple) ;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 15px; /* 115.385% */
+            letter-spacing: -0.1px;
+            margin: 0 0;
+        }
+    }
+    & .mainMenuRight {
+        display: flex;
+        width: 30%;
+        justify-content: space-between;
+        & .filterButton {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 37%;
+            & p {
+                color: var(--text-color);
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 15px; /* 100% */
+                letter-spacing: -0.25px;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        & .filterMenu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            margin-top: 50px;
+            background-color: var(--invoice-bg);
+            border-radius: 8px;
+            padding: 30px 100px 30px 45px;
+            right: 26.5%;
+            & div {
+                display: flex;
+                align-items: center;
+                & input {
+                    margin-right: 22px;
+                    width: 16px;
+                    height: 16px;
+                }
+                & p {
+                    color: var(--text-color);
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 15px; 
+                    letter-spacing: -0.25px;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 1800px) and (min-width: 1600px) {
+    .mainMenu {
+        width: 60%;
+        & .mainMenuRight {
+            width: 35%;
+        }
+    }
+}
+
+@media (max-width: 1600px) and (min-width: 1300px) {
+    .mainMenu {
+        width: 63%;
+        & .mainMenuRight {
+            width: 38%;
+        }
+    }
+}
+
+@media (max-width: 1300px) and (min-width: 1150px) {
+    .mainMenu {
+        width: 66%;
+        & .mainMenuRight {
+            width: 42%;
+        }
+    }
+}
+
+@media (max-width: 1150px) and (min-width: 1000px) {
+    .mainMenu {
+        width: 70%;
+        & .mainMenuRight {
+            width: 45%;
+        }
+    }
+}
+
+@media (max-width: 1000px) and (min-width: 768px) {
+    .mainMenu {
+        width: 75%;
+        & .mainMenuRight {
+            width: 52%;
+        }
+    }
+}
+
+@media (max-width: 768px) and (min-width: 650px) {
+    .mainMenu {
+        width: 80%;
+        & .mainMenuRight {
+            width: 57.5%;
+        }
+    }
+}
+
+@media (max-width: 650px) and (min-width: 500px) {
+    .mainMenu {
+        width: 90%;
+        & .mainMenuRight {
+            width: 62%;
+        }
+    }
+    .filterButton {
+        width: 42%!important;
+    }
+}
+
+@media (max-width: 499px) and (min-width: 360px) {
+    .mainMenu {
+        width: 95%;
+        & .mainMenuLeft {
+            & h1 {
+                font-size: 28px;
+            }
+        }
+        & .mainMenuRight {
+            width: 63%;
+        }
+    }
+    .filterButton {
+        width: 52%!important;
+    }
+}
+
+@media (max-width: 359px) and (min-width: 320px) {
+    .mainMenu {
+        width: 90%;
+        & .mainMenuLeft {
+            & h1 {
+                font-size: 25px;
+            }
+        }
+        & .mainMenuRight {
+            width: 50%;
+            & span {
+                display: none;
+            }
+        }
+    }
+    .filterButton {
+        width: 32%!important;
+    }
+}
+

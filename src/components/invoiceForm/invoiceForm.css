@@ -1,0 +1,574 @@
+.calc {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.invoiceFormContainer {
+  display: flex;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--invoice-bg);
+}
+.invoiceFormContainer .invoiceForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--invoice-bg);
+  overflow-y: scroll;
+  height: 100vh;
+  border-radius: 0px 0px 0px 0px;
+  z-index: -1;
+  padding: 20px 40px 0 40px;
+  position: relative;
+}
+.invoiceFormContainer .invoiceForm::-webkit-scrollbar {
+  background: white;
+  width: 8px;
+}
+.invoiceFormContainer .invoiceForm::-webkit-scrollbar-thumb {
+  background: #DFE3FA;
+  height: 112px;
+  border-radius: 4px;
+}
+.invoiceFormContainer .invoiceForm input {
+  border-radius: 4px;
+  border: 1px solid var(--05, #DFE3FA);
+  background: #FFF;
+  padding-left: 15px;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+}
+.invoiceFormContainer .invoiceForm input:focus {
+  border: 1px solid var(--purple);
+}
+.invoiceFormContainer .invoiceForm label {
+  margin-left: 10px;
+  margin-bottom: 7px;
+  color: var(--p-purple);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px; /* 115.385% */
+  letter-spacing: -0.1px;
+}
+.invoiceFormContainer .invoiceForm .formTitle {
+  color: var(--text-color);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.5px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromTitle {
+  color: var(--purple);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px; /* 100% */
+  letter-spacing: -0.25px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromTop {
+  display: flex;
+  flex-direction: column;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromTop input {
+  width: 95%;
+  height: 48px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromBottom {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-top: 20px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromBottom input {
+  height: 48px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromBottom .city {
+  width: 27%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromBottom .city input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromBottom .postCode {
+  width: 27%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromBottom .postCode input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromBottom .country {
+  width: 27%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormTop .billFromBottom .country input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  width: 95%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop {
+  display: flex;
+  flex-direction: column;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop .billToTitle {
+  color: var(--purple);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px; /* 100% */
+  letter-spacing: -0.25px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop input {
+  height: 48px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop .clientName {
+  width: 90%;
+  margin: 10px 0;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop .clientName input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop .clientEmail {
+  width: 90%;
+  margin: 10px 0;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop .clientEmail input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop .clientStreetAddress {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 90%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop .clientStreetAddress input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToCenter {
+  display: flex;
+  justify-content: space-between;
+  width: 89%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToCenter input {
+  height: 48px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToCenter .clientCity {
+  width: 27%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToCenter .clientCity input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToCenter .clientPostCode {
+  width: 27%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToCenter .clientPostCode input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToCenter .clientCountry {
+  width: 27%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormCenter .billToCenter .clientCountry input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop {
+  display: flex;
+  flex-direction: column;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 95%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop input {
+  height: 48px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .invoiceDate {
+  width: 45%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .invoiceDate input {
+  width: 100%;
+  margin-top: 7px;
+  outline: none;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms {
+  width: 45%;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms .paymentTermsInputContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms .paymentTermsInputContainer svg {
+  position: relative;
+  right: 40px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms:hover {
+  cursor: pointer;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms .paymentTermsInput:hover {
+  cursor: pointer;
+  border: 1px solid var(--purple);
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms input {
+  width: 100%;
+  margin-top: 7px;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms .options {
+  position: absolute;
+  z-index: 999;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0 0 4px 4px;
+  border-top: none;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms .options .option {
+  padding: 15px 15px;
+  transition: background-color 0.2s;
+  border-top: 1px solid #ccc;
+  text-decoration: none;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopTop .paymentTerms .options .option:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  color: var(--purple);
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopBottom {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.invoiceFormContainer .invoiceForm .invoiceFormBottom .invoiceFormBottomTop .invoiceFormBottomTopBottom input {
+  width: 95%;
+  height: 48px;
+}
+.invoiceFormContainer .invoiceForm .formButtons {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 1;
+  border-radius: 0px 20px 20px 0px;
+  background: #FFF;
+  padding-top: 20px;
+}
+.invoiceFormContainer .invoiceForm .formButtons .formButtonsLeft {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.invoiceFormContainer .invoiceForm .formButtons .formButtonsRight {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-right: 15px;
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin-bottom: 80px;
+}
+.itemList .itemListForm {
+  width: 100%;
+}
+.itemList .itemListTitle {
+  color: #777F98;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 177.778% */
+  letter-spacing: -0.375px;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+.itemList .inputsItemList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+}
+.itemList .inputsItemList .itemNameInListInput {
+  display: flex;
+  flex-direction: column;
+  width: 37%;
+}
+.itemList .inputsItemList .itemQuantityInput {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+}
+.itemList .inputsItemList .itemPriceInput {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+.itemList .inputsItemList label {
+  color: #7E88C3;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px; /* 115.385% */
+  letter-spacing: -0.1px;
+  margin: 0 0 15px 15px;
+}
+.itemList .inputsItemList input {
+  border-radius: 4px;
+  border: 1px solid var(--05, #DFE3FA);
+  background: #FFF;
+  margin: 0 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+  height: 48px;
+}
+.itemList .inputsItemList .total {
+  display: flex;
+  align-items: center;
+}
+.itemList .inputsItemList .total .totalPrice h5 {
+  color: #7E88C3;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px; /* 115.385% */
+  letter-spacing: -0.1px;
+  margin: 10px 0px 10px 0px;
+}
+.itemList .inputsItemList .total .totalPrice p {
+  color: #888EB0;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px; /* 100% */
+  letter-spacing: -0.25px;
+  margin: 10px 0px 10px 0px;
+}
+.itemList .inputsItemList .total .trash {
+  margin-left: 35px;
+  width: 20px;
+  height: 24px;
+  margin-top: 15px;
+}
+.itemList .inputsItemList .total .trash path:hover {
+  fill: red !important;
+}
+.itemList .inputsItemList .total .trash:hover {
+  cursor: pointer;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+
+.addNewItemButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  width: 100%;
+  height: 48px;
+  border-radius: 24px;
+  background-color: #F9FAFE;
+  color: var(--p-purple);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px; /* 100% */
+  letter-spacing: -0.25px;
+  text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px; /* 100% */
+  letter-spacing: -0.25px;
+}
+.addNewItemButton:hover {
+  background-color: #DFE3FA;
+  cursor: pointer;
+}
+
+@media (max-width: 1650px) and (min-width: 1450px) {
+  .newInvoiceFormContainer {
+    width: 60% !important;
+  }
+}
+@media (max-width: 1449px) and (min-width: 1300px) {
+  .newInvoiceFormContainer {
+    width: 67% !important;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 44% !important;
+  }
+}
+@media (max-width: 1229px) and (min-width: 1050px) {
+  .newInvoiceFormContainer {
+    width: 72% !important;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 52% !important;
+  }
+}
+@media (max-width: 1049px) and (min-width: 900px) {
+  .newInvoiceFormContainer {
+    width: 77% !important;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 58% !important;
+  }
+}
+@media (max-width: 899px) and (min-width: 769px) {
+  .newInvoiceFormContainer {
+    width: 100vw !important;
+  }
+  .newInvoiceFormQuit {
+    display: none;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 50% !important;
+  }
+}
+@media (max-width: 768px) and (min-width: 600px) {
+  .newInvoiceFormContainer {
+    width: 100vw !important;
+  }
+  .newInvoiceFormQuit {
+    display: none;
+  }
+  .invoiceForm {
+    width: 100vw !important;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 50% !important;
+  }
+  .customSideBar {
+    display: none !important;
+  }
+}
+@media (max-width: 599px) and (min-width: 500px) {
+  .newInvoiceFormContainer {
+    width: 100vw !important;
+  }
+  .newInvoiceFormQuit {
+    display: none;
+  }
+  .invoiceForm {
+    width: 100vw !important;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 55% !important;
+  }
+  .customSideBar {
+    display: none !important;
+  }
+}
+@media (max-width: 499px) and (min-width: 450px) {
+  .newInvoiceFormContainer {
+    width: 100vw !important;
+  }
+  .newInvoiceFormQuit {
+    display: none;
+  }
+  .invoiceForm {
+    width: 100vw !important;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 60% !important;
+  }
+  .customSideBar {
+    display: none !important;
+  }
+}
+@media (max-width: 449px) and (min-width: 400px) {
+  .newInvoiceFormContainer {
+    width: 100vw !important;
+  }
+  .newInvoiceFormQuit {
+    display: none;
+  }
+  .invoiceForm {
+    width: 100vw !important;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 65% !important;
+  }
+  .customSideBar {
+    display: none !important;
+  }
+}
+@media (max-width: 399px) and (min-width: 350px) {
+  .newInvoiceFormContainer {
+    width: 100vw !important;
+  }
+  .newInvoiceFormQuit {
+    display: none;
+  }
+  .invoiceForm {
+    width: 100vw !important;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 73% !important;
+  }
+  .invoiceForm .formButtonsRight button {
+    width: 108px !important;
+    margin: 0 2.5px;
+  }
+  .customSideBar {
+    display: none !important;
+  }
+}
+@media (max-width: 349px) and (min-width: 300px) {
+  .newInvoiceFormContainer {
+    width: 100vw !important;
+  }
+  .newInvoiceFormQuit {
+    display: none;
+  }
+  .invoiceForm {
+    width: 100vw !important;
+  }
+  .invoiceForm .formButtonsLeft button {
+    width: 80px;
+  }
+  .invoiceForm .formButtonsRight {
+    width: 79% !important;
+  }
+  .invoiceForm .formButtonsRight button {
+    width: 105px !important;
+    margin: 1.5px;
+  }
+  .customSideBar {
+    display: none !important;
+  }
+}/*# sourceMappingURL=invoiceForm.css.map */

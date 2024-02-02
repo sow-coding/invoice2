@@ -1,0 +1,108 @@
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 110px;
+  height: 100vh;
+  background-color: #1E2139;
+  border-radius: 0px 24px 24px 0px;
+}
+.sideBar .logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px 24px 24px 0px;
+  background-color: var(--purple);
+  width: 100%;
+  height: 103px;
+}
+.sideBar .sideBarBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 30%;
+}
+.sideBar .sideBarBottom .shadowMode:hover {
+  cursor: pointer;
+}
+.sideBar .sideBarBottom .row {
+  width: 100%;
+  height: 0.5px;
+  background-color: #494E6E;
+}
+.sideBar .sideBarBottom .userImage:hover {
+  cursor: pointer;
+}
+.sideBar .moon {
+  background-color: var(--p-purple);
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+}
+.sideBar .moon:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1550px) and (min-width: 1300px) {
+  .sideBar {
+    width: 8%;
+  }
+}
+@media (max-width: 1300px) and (min-width: 1150px) {
+  .sideBar {
+    width: 7%;
+  }
+}
+@media (max-width: 1150px) and (min-width: 1000px) {
+  .sideBar {
+    width: 9%;
+  }
+}
+@media (max-width: 1000px) and (min-width: 850px) {
+  .sideBar {
+    width: 8.5%;
+  }
+}
+@media (max-width: 850px) and (min-width: 768px) {
+  .sideBar {
+    width: 9%;
+  }
+}
+@media (max-width: 768px) {
+  .sideBar {
+    height: auto;
+    width: 100%;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0;
+  }
+  .sideBar .logoContainer {
+    width: 20%;
+  }
+  .sideBar .sideBarBottom {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+    align-items: center;
+    margin-right: 40px;
+  }
+  .sideBar .sideBarBottom .row {
+    display: none;
+  }
+}
+@media (max-width: 500px) and (min-width: 400px) {
+  .sideBar .sideBarBottom {
+    width: 19.5%;
+  }
+}
+@media (max-width: 399px) and (min-width: 320px) {
+  .sideBar .sideBarBottom {
+    width: 24%;
+  }
+}/*# sourceMappingURL=sideBar.css.map */

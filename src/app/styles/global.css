@@ -1,0 +1,55 @@
+@import "../../components/sideBar/sideBar.css";
+@import "../../components/navBar/navBar.css";
+@import "../../components/invoicesApp/invoicesApp.css";
+@import "../../components/newInvoiceButton/newInvoiceButton.css";
+@import "../../components/invoiceForm/invoiceForm.css";
+@import "../../components/buttons/discard/discard.css";
+@import "../../components/buttons/saveAndSend/saveAndSend.css";
+@import "../../components/buttons/saveAsDraft/saveAsDraft.css";
+@import "../../components/nothing/nothing.css";
+* {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0 0;
+}
+
+:root {
+  --bg-color: #F8F8FB;
+  --text-color: #0C0E16;
+  --p-purple: #7E88C3;
+  --invoice-bg: #fff;
+  --purple: #7C5DFA;
+  --purple-hover: #9277FF;
+  --red: #EC5757;
+  --red-hover: #FF9797;
+}
+
+[data-theme=dark] {
+  --bg-color: #141625;
+  --text-color: #fff;
+  --p-purple: #7E88C3;
+  --invoice-bg: #1E2139;
+  --purple: #7C5DFA;
+  --purple-hover: #9277FF;
+  --red: #EC5757;
+  --red-hover: #FF9797;
+}
+
+.home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: var(--bg-color);
+}
+
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}/*# sourceMappingURL=global.css.map */
