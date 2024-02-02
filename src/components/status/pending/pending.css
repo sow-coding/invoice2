@@ -1,0 +1,22 @@
+.pending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: #f8e1c2;
+  width: 114px;
+  height: 40px;
+}
+.pending svg {
+  width: 12px;
+  height: 12px;
+}
+.pending .draftPending {
+  color: #FF8F00;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  margin-left: 15px;
+}/*# sourceMappingURL=pending.css.map */

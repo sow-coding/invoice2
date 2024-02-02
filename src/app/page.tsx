@@ -37,6 +37,8 @@ export interface item {
   total: number
 }
 
+//localStorage l'array invoices !
+
 export default function Home() {
   const {theme} = useThemeContext()
   const {setFilterDisplayed} = useFilterContext()

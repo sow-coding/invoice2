@@ -1,0 +1,82 @@
+.deleteConfirmationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+}
+.deleteConfirmationContainer .deleteConfirmation {
+  width: 35%;
+  padding: 20px 20px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  background: var(--invoice-bg);
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+}
+.deleteConfirmationContainer .deleteConfirmation h1 {
+  color: var(--text-color);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+}
+.deleteConfirmationContainer .deleteConfirmation .deleteConfirmationText {
+  color: var(--lightGray);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.1px;
+  width: 90%;
+}
+.deleteConfirmationContainer .deleteConfirmation .deleteConfirmButton {
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
+}
+.deleteConfirmationContainer .deleteConfirmation .deleteConfirmButton .cancel {
+  width: 91px;
+  height: 48px;
+  flex-shrink: 0;
+  background-color: var(--items-bg);
+  margin-right: 15px;
+  color: var(--p-purple);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  border-radius: 28px;
+  border: none;
+}
+.deleteConfirmationContainer .deleteConfirmation .deleteConfirmButton .cancel:hover {
+  cursor: pointer;
+}
+
+.deleteButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 89px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: var(--red);
+  color: #FFF;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+}
+.deleteButton:hover {
+  background-color: var(--red-hover);
+  cursor: pointer;
+}/*# sourceMappingURL=deleteInvoice.css.map */

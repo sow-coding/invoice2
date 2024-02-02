@@ -7,6 +7,15 @@
 @import "../../components/buttons/saveAndSend/saveAndSend.css";
 @import "../../components/buttons/saveAsDraft/saveAsDraft.css";
 @import "../../components/nothing/nothing.css"; 
+@import "../../components/status/draft/draft.css";
+@import "../../components/status/paid/paid.css";
+@import "../../components/status/pending/pending.css";
+@import "../../components/invoice/invoice.css";
+@import "../../components/invoiceList/invoiceList.css";
+@import "../../components/editBtn/editBtn.css";
+@import "../../components/markAsPaidBtn/markAsPaidBtn.css";
+@import "../../components/deleteBtn/deleteBtn.css";
+@import "../../components/deleteInvoice/deleteInvoice.css";
 * {
     box-sizing: border-box;
     &:focus {
@@ -27,6 +36,8 @@ body {
     --purple-hover: #9277FF;
     --red: #EC5757;
     --red-hover: #FF9797;
+    --lightGray: #888EB0;
+    --items-bg: #F9FAFE
 }
 
 [data-theme=dark] {
@@ -38,6 +49,8 @@ body {
     --purple-hover: #9277FF;
     --red: #EC5757;
     --red-hover: #FF9797;
+    --lightGray: #888EB0;
+    --items-bg: #252945;
 }
 
 .home {

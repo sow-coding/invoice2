@@ -18,15 +18,9 @@ function InvoiceForm() {
         setPaymentTerms(choice);
         setPaymentTermsDowned(false); 
       };
-    const [items, setItems] = useState<item[]>([{
-        name: "",
-        quantity: 0,
-        price: 0,
-        total: 0
-    }])
     function genererSuite() {
         const caracteresPossibles = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        let suite = "#";
+        let suite = "";
       
         for (let i = 0; i < 6; i++) {
           const indiceAleatoire = Math.floor(Math.random() * caracteresPossibles.length);
@@ -34,7 +28,7 @@ function InvoiceForm() {
         }
       
         return suite;
-      }
+    }
     const [personnalStreet, setPersonnalStreet] = useState<string>("")
     const [personnalCity, setPersonnalCity] = useState<string>("")
     const [personnalPostCode, setPersonnalPostCode] = useState<number>(0)
@@ -47,6 +41,13 @@ function InvoiceForm() {
     const [clientCountry, setClientCountry] = useState<string>("")
     const [invoiceDate, setInvoiceDate] = useState<string>("")
     const [projectDescription, setProjectDescription] = useState<string>("")
+    const [items, setItems] = useState<item[]>([{
+        name: "",
+        quantity: 0,
+        price: 0,
+        total: 0
+    }])
+    const total = items.reduce((total, item) => total + item.total, 0)
     const newInvoice:invoiceType = {
         id: genererSuite(),
         name: clientName,
@@ -67,7 +68,7 @@ function InvoiceForm() {
         paymentTerms: paymentTerms,
         items: items,
         status: "pending",
-        price: items.reduce((total, item) => total + item.price, 0),
+        price: total,
         projectDescription: projectDescription 
     }
     const newInvoiceDraft:invoiceType = {
@@ -89,10 +90,11 @@ function InvoiceForm() {
         invoiceDate: invoiceDate,
         paymentTerms: paymentTerms,
         items: items,
-        price: items.reduce((total, item) => total + item.price, 0),
+        price: total,
         projectDescription: projectDescription,
         status: "draft" 
     }
+    console.log(newInvoice)
     return (
     <div className="calc" onClick={() => {setInvoiceFormDisplayed(false)}}>
         <div className="invoiceFormContainer">
@@ -223,31 +225,47 @@ function InvoiceForm() {
                     <div className={`itemNameInListInput`}>
                         <label htmlFor="itemNameInList">Item Name</label>
                         <input type="text" name='itemNameInList' onChange={(e) => {
-                    //setPersonnalStreet(e.currentTarget.value)
+                            const updatedItems = [...items]
+                            updatedItems[index] = {
+                                ...updatedItems[index],
+                                name: e.currentTarget.value
+                            }
+                            setItems(updatedItems)
                 }}/>
                     </div>
                     <div className={`itemQuantityInput`}>
                         <label htmlFor="itemQuantity">Qty.</label>
                         <input type="number" name='itemQuantity'onChange={(e) => {
-                    //setPersonnalStreet(e.currentTarget.value)
-                }}/>
+                            const updatedItems = [...items]
+                            updatedItems[index] = {
+                                ...updatedItems[index],
+                                quantity: Number(e.currentTarget.value),
+                            }
+                            setItems(updatedItems)                
+                        }}/>
                     </div>      
                     <div className={`itemPriceInput`}>
                         <label htmlFor="itemPrice">Price</label>
                         <input type="text" name='itemPrice' onChange={(e) => {
-                    //setPersonnalStreet(e.currentTarget.value)
-                }}/>
+                            const updatedItems = [...items]
+                            updatedItems[index] = {
+                                ...updatedItems[index],
+                                price: Number(e.currentTarget.value),
+                                total: (updatedItems[index].quantity * Number(e.currentTarget.value))
+                            }
+                            setItems(updatedItems)                
+                        }}/>
                     </div>    
         
                     <div className={`total`}>
                         <div className={`totalPrice`}>
                             <h5>Total</h5>
-                            <p>0.00</p>
+                            <p>{(item.price * item.quantity)}</p>
                         </div>
                         <svg onClick={()=> {
                             const newItems = [...items]
                             newItems.splice(index, 1)
-                            setItems(newItems)
+                            items.length > 1 ? setItems(newItems) : alert("Minimum one item !")
                         }} className={`trash`} xmlns="http://www.w3.org/2000/svg" width="13" height="16" viewBox="0 0 13 16" fill="#888EB0">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.47225 0L9.36117 0.888875H12.4722V2.66667H0.027832V0.888875H3.13892L4.02783 0H8.47225ZM2.6945 16C1.71225 16 0.916707 15.2045 0.916707 14.2222V3.55554H11.5834V14.2222C11.5834 15.2045 10.7878 16 9.80562 16H2.6945Z" />
                         </svg>
