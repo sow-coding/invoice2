@@ -1,0 +1,29 @@
+.hashtag {
+  color: var(--p-purple);
+}
+
+.cancel {
+  width: 91px;
+  height: 48px;
+  flex-shrink: 0;
+  background-color: var(--items-bg);
+  margin-right: 15px;
+  color: var(--p-purple);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  border-radius: 28px;
+  border: none;
+}
+.cancel:hover {
+  cursor: pointer;
+}
+
+.formButtonsEditForm {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end !important;
+  padding-bottom: 40px;
+}/*# sourceMappingURL=editForm.css.map */

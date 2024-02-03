@@ -1,54 +1,39 @@
 "use client"
-import { useInvoiceFormContext } from '@/contexts/invoiceForm.context'
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import SideBar from '../sideBar/sideBar'
-import DiscardBtn from '../buttons/discard/discard';
-import SaveAsDraftButton from '../buttons/saveAsDraft/saveAsDraft';
-import SaveAndSendButton from '../buttons/saveAndSend/saveAndSend';
 import { choice, invoiceType, item } from '@/app/page';
+import SaveChanges from '../buttons/saveChanges/saveChanges';
 
+interface EditFormProps {
+    invoiceData: invoiceType;
+    setEditForm: Dispatch<SetStateAction<boolean>>
+}
 
-function InvoiceForm() {
+function EditForm(props: EditFormProps) {
+    const {invoiceData} = props
     const [paymentTermsDowned, setPaymentTermsDowned] = useState<boolean>(false)
     const choices: choice[] = ["Net 1 day", "Net 7 day", "Net 14 day", "Net 30 day"];
-    const {setInvoiceFormDisplayed} = useInvoiceFormContext()
-    const [paymentTerms, setPaymentTerms] = useState<choice>("Net 30 day") 
+    const [paymentTerms, setPaymentTerms] = useState<choice>(invoiceData.paymentTerms) 
     const handleChoiceClick = (choice:choice) => {
         setPaymentTerms(choice);
         setPaymentTermsDowned(false); 
-      };
-    function genererSuite() {
-        const caracteresPossibles = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        let suite = "";
-      
-        for (let i = 0; i < 6; i++) {
-          const indiceAleatoire = Math.floor(Math.random() * caracteresPossibles.length);
-          suite += caracteresPossibles.charAt(indiceAleatoire);
-        }
-      
-        return suite;
-    }
-    const [personnalStreet, setPersonnalStreet] = useState<string>("")
-    const [personnalCity, setPersonnalCity] = useState<string>("")
-    const [personnalPostCode, setPersonnalPostCode] = useState<number>(0)
-    const [personnalCountry, setPersonnalCountry] = useState<string>("")
-    const [clientName, setClientName] = useState<string>("")
-    const [clientEmail, setClientEmail] = useState<string>("")
-    const [clientStreet, setClientStreet] = useState<string>("")
-    const [clientCity, setClientCity] = useState<string>("")
-    const [clientPostCode, setClientPostCode] = useState<number>(0)
-    const [clientCountry, setClientCountry] = useState<string>("")
-    const [invoiceDate, setInvoiceDate] = useState<string>("")
-    const [projectDescription, setProjectDescription] = useState<string>("")
-    const [items, setItems] = useState<item[]>([{
-        name: "",
-        quantity: 0,
-        price: 0,
-        total: 0
-    }])
+    };
+    const [personnalStreet, setPersonnalStreet] = useState<string>(invoiceData.personnalAddress.street)
+    const [personnalCity, setPersonnalCity] = useState<string>(invoiceData.personnalAddress.city)
+    const [personnalPostCode, setPersonnalPostCode] = useState<number>(invoiceData.personnalAddress.postCode)
+    const [personnalCountry, setPersonnalCountry] = useState<string>(invoiceData.personnalAddress.country)
+    const [clientName, setClientName] = useState<string>(invoiceData.name)
+    const [clientEmail, setClientEmail] = useState<string>(invoiceData.email)
+    const [clientStreet, setClientStreet] = useState<string>(invoiceData.clientAddress.street)
+    const [clientCity, setClientCity] = useState<string>(invoiceData.clientAddress.city)
+    const [clientPostCode, setClientPostCode] = useState<number>(invoiceData.clientAddress.postCode)
+    const [clientCountry, setClientCountry] = useState<string>(invoiceData.clientAddress.country)
+    const [invoiceDate, setInvoiceDate] = useState<string>(invoiceData.invoiceDate)
+    const [projectDescription, setProjectDescription] = useState<string>(invoiceData.projectDescription)
+    const [items, setItems] = useState<item[]>(invoiceData.items)
     const total = items.reduce((total, item) => total + item.total, 0)
-    const newInvoice:invoiceType = {
-        id: genererSuite(),
+    const editedInvoice:invoiceType = {
+        id: invoiceData.id,
         name: clientName,
         personnalAddress: {
             street: personnalStreet,
@@ -70,60 +55,36 @@ function InvoiceForm() {
         price: total,
         projectDescription: projectDescription 
     }
-    const newInvoiceDraft:invoiceType = {
-        id: genererSuite(),
-        name: clientName,
-        personnalAddress: {
-            street: personnalStreet,
-            city: personnalCity,
-            postCode: personnalPostCode,
-            country: personnalCountry
-        },
-        email: clientEmail,
-        clientAddress: {
-            street: clientStreet,
-            city: clientCity,
-            postCode: clientPostCode,
-            country: clientCountry
-        },
-        invoiceDate: invoiceDate,
-        paymentTerms: paymentTerms,
-        items: items,
-        price: total,
-        projectDescription: projectDescription,
-        status: "draft" 
-    }
     return (
-    <div className="calc" onClick={() => {setInvoiceFormDisplayed(false)}}>
+    <div className="calc" onClick={() => {props.setEditForm(false)}}>
         <div className="invoiceFormContainer">
             <SideBar position='relative'/>
             <form className={`invoiceForm`} onClick={(e) => {e.stopPropagation(), setPaymentTermsDowned(false)}}>
-                <h1 className={`formTitle`}>New Invoice</h1>
-                
+                <h1 className={`formTitle`}>Edit <span className='hashtag'>#</span>{invoiceData.id}</h1>
             <div className={`invoiceFormTop`}>
                 <h5 className={`billFromTitle`}>Bill from</h5>
                 <div className={`billFromTop`}>
                 <label htmlFor="address">Street Address</label>
-                <input type="text" name='address' onChange={(e) => {
+                <input type="text" name='address' defaultValue={invoiceData.personnalAddress.street} onChange={(e) => {
                     setPersonnalStreet(e.currentTarget.value)
                 }}/>
                 </div>
                 <div className={`billFromBottom`}>
                     <div className={`city`}>
                     <label htmlFor="city">City</label>
-                    <input type="text" name='city' onChange={(e) => {
+                    <input type="text" name='city' defaultValue={invoiceData.personnalAddress.city} onChange={(e) => {
                     setPersonnalCity(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`postCode`}>
                     <label htmlFor="postCode">Postcode</label>
-                    <input type="number" name='postCode' onChange={(e) => {
+                    <input type="number" defaultValue={invoiceData.personnalAddress.postCode} name='postCode' onChange={(e) => {
                     setPersonnalPostCode(Number(e.currentTarget.value))
                 }}/>
                     </div>
                     <div className={`country`}>
                     <label htmlFor="country">Country</label>
-                    <input type="text" name='country' onChange={(e) => {
+                    <input type="text" defaultValue={invoiceData.personnalAddress.country} name='country' onChange={(e) => {
                     setPersonnalCountry(e.currentTarget.value)
                 }}/>
                     </div>
@@ -134,19 +95,19 @@ function InvoiceForm() {
                     <h5 className={`billToTitle`}>Bill to</h5>
                     <div className={`clientName`}>
                     <label htmlFor="clientName">Client´s Name</label>
-                    <input type="text" name='clientName'  onChange={(e) => {
+                    <input type="text" defaultValue={invoiceData.name} name='clientName'  onChange={(e) => {
                     setClientName(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`clientEmail`}>
                     <label htmlFor="clientEmail">Client´s Email</label>
-                    <input type="text" placeholder='e.g. email@example.com' name='clientEmail' onChange={(e) => {
+                    <input type="text" defaultValue={invoiceData.email} placeholder='e.g. email@example.com' name='clientEmail' onChange={(e) => {
                     setClientEmail(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`clientStreetAddress`}>
                     <label htmlFor="clientStreetAddress">Street Address</label>
-                    <input type="text" name='clientStreetAddress' onChange={(e) => {
+                    <input type="text" defaultValue={invoiceData.personnalAddress.street} name='clientStreetAddress' onChange={(e) => {
                     setClientStreet(e.currentTarget.value)
                 }}/>
                     </div>
@@ -154,19 +115,19 @@ function InvoiceForm() {
                 <div className={`billToCenter`}>
                     <div className={`clientCity`}>
                     <label htmlFor="clientCity">City</label>
-                    <input type="text" name='clientCity' onChange={(e) => {
+                    <input type="text" defaultValue={invoiceData.clientAddress.city} name='clientCity' onChange={(e) => {
                     setClientCity(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`clientPostCode`}>
                     <label htmlFor="clientPostCode">Post Code</label>
-                    <input type="number" name='clientPostCode' onChange={(e) => {
+                    <input type="number" defaultValue={invoiceData.clientAddress.postCode} name='clientPostCode' onChange={(e) => {
                     setClientPostCode(Number(e.currentTarget.value))
                 }}/>
                     </div>
                     <div className={`clientCountry`}>
                     <label htmlFor="clientCountry">Country</label>
-                    <input type="text" name='clientCountry' onChange={(e) => {
+                    <input defaultValue={invoiceData.clientAddress.country} type="text" name='clientCountry' onChange={(e) => {
                     setClientCountry(e.currentTarget.value)
                 }}/>
                     </div>
@@ -178,15 +139,15 @@ function InvoiceForm() {
                     <div className={`invoiceFormBottomTopTop`}>
                     <div className={`invoiceDate`}>
                         <label htmlFor="invoiceDate">Invoice Date</label>
-                        <input type="date" onChange={(e) => {
-                    setInvoiceDate(e.currentTarget.value)
+                        <input readOnly  defaultValue={invoiceData.invoiceDate} type="date" onChange={(e) => {
+                        setInvoiceDate(e.currentTarget.value)
                 }}/>
                     </div>
 
                     <div className={`paymentTerms`}>
                         <label htmlFor="paymentTerms">Payment Terms</label>
                         <div className={`paymentTermsInputContainer`}>
-                        <input onClick={(e) => {e.stopPropagation(),setPaymentTermsDowned(!paymentTermsDowned)}} placeholder='Net 30 days' readOnly className={`paymentTermsInput`} type="text" name='paymentTerms'                   
+                        <input onClick={(e) => {e.stopPropagation(),setPaymentTermsDowned(!paymentTermsDowned)}} placeholder={invoiceData.paymentTerms} readOnly className={`paymentTermsInput`} type="text" name='paymentTerms'                   
                         value={paymentTerms}/>
                         {paymentTermsDowned === false ? <svg xmlns="http://www.w3.org/2000/svg" width="11" height="7" viewBox="0 0 11 7" fill="none">
                             <path d="M1 1L5.2279 5.2279L9.4558 1" stroke="#7C5DFA" stroke-width="2"/>
@@ -208,7 +169,7 @@ function InvoiceForm() {
                     </div>
                     <div className={`invoiceFormBottomTopBottom`}>
                     <label htmlFor="projectDescription">Project Description</label>
-                    <input type="text" placeholder='e.g. Graphic Design Service' name='projectDescription' onChange={(e) => {
+                    <input type="text" defaultValue={invoiceData.projectDescription} placeholder='e.g. Graphic Design Service' name='projectDescription' onChange={(e) => {
                     setProjectDescription(e.currentTarget.value)
                 }}/>
                     </div> 
@@ -222,7 +183,7 @@ function InvoiceForm() {
                     <div className={`inputsItemList`}>
                     <div className={`itemNameInListInput`}>
                         <label htmlFor="itemNameInList">Item Name</label>
-                        <input type="text" name='itemNameInList' onChange={(e) => {
+                        <input defaultValue={item.name} type="text" name='itemNameInList' onChange={(e) => {
                             const updatedItems = [...items]
                             updatedItems[index] = {
                                 ...updatedItems[index],
@@ -233,7 +194,7 @@ function InvoiceForm() {
                     </div>
                     <div className={`itemQuantityInput`}>
                         <label htmlFor="itemQuantity">Qty.</label>
-                        <input type="number" name='itemQuantity'onChange={(e) => {
+                        <input defaultValue={item.quantity} type="number" name='itemQuantity'onChange={(e) => {
                             const updatedItems = [...items]
                             updatedItems[index] = {
                                 ...updatedItems[index],
@@ -244,7 +205,7 @@ function InvoiceForm() {
                     </div>      
                     <div className={`itemPriceInput`}>
                         <label htmlFor="itemPrice">Price</label>
-                        <input type="number" name='itemPrice' onChange={(e) => {
+                        <input defaultValue={item.price} type="number" name='itemPrice' onChange={(e) => {
                             const updatedItems = [...items]
                             updatedItems[index] = {
                                 ...updatedItems[index],
@@ -284,14 +245,11 @@ function InvoiceForm() {
                 </div>
                 </div>
             
-                <div className={`formButtons`}>
-                <div className={`formButtonsLeft`}>
-                    <DiscardBtn />
-                </div>
-                <div className={`formButtonsRight`}>
-                    <SaveAsDraftButton newInvoiceDraft={newInvoiceDraft}/>
-                    <SaveAndSendButton newInvoice={newInvoice}/>
-                </div>
+                <div className={`formButtonsEditForm`}>
+                <button className={`cancel`} onClick={() => {
+                props.setEditForm(false)
+                }}>Cancel</button>
+                <SaveChanges setEditForm={props.setEditForm} editedInvoice={editedInvoice}/>
                 </div>
                 
             </form>
@@ -300,4 +258,4 @@ function InvoiceForm() {
     )
 }
 
-export default InvoiceForm
+export default EditForm

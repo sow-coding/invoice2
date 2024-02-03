@@ -1,0 +1,17 @@
+.saveChanges {
+  width: 128px;
+  height: 48px;
+  border: none;
+  background-color: var(--purple);
+  border-radius: 24px;
+  color: #FFF;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+}
+.saveChanges:hover {
+  background-color: var(--purple-hover);
+  cursor: pointer;
+}/*# sourceMappingURL=saveChanges.css.map */

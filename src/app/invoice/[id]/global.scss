@@ -3,13 +3,13 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    //justify-content: space-between;
     align-items: center;
     background-color: var(--bg-color);
     & .invoiceDetailsTop {
         display: flex;
         width: 75%;
-        margin-top: 40px;
+        margin: 40px 0px;
         & .back {
             display: flex;
             align-items: center;
@@ -37,7 +37,8 @@
     }
     & .invoiceDetailsCenter {
         width: 75%;
-        height: 15%;
+        padding: 30px 20px;
+        margin: 0 0 40px 0;
         border-radius: 8px;
         background: var(--invoice-bg);
         box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
@@ -69,10 +70,16 @@
             align-items: center;
             margin-right: 20px;
         }
+        & .invoiceDetailsCenterRightEdited {
+            justify-content: flex-end!important;
+            & div {
+                margin: 0 10px;
+            }
+        }
     }
     & .invoiceDetailsBottom {
         width: 75%;
-        height: 65%;
+        //height: 65%;
         border-radius: 8px;
         background: var(--invoice-bg);
         box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
@@ -229,13 +236,17 @@
         & .invoiceDetailsBottomBottom {
             display: flex;
             flex-direction: column;
-            width: 100%;
-            height: 45%;
+            width: 80%;
+            align-self: center;
+            margin-bottom: 30px;
             & .invoicesDetailsBottomBottomItems {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
                 height: 100%;
+                overflow-y: auto;
+                max-height: 130px;
+                padding-top: 20px;
                 & .invoiceDetailsBottomBottomTop {
                     display: flex;
                     width: 100%;

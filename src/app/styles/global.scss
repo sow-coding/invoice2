@@ -16,6 +16,8 @@
 @import "../../components/markAsPaidBtn/markAsPaidBtn.css";
 @import "../../components/deleteBtn/deleteBtn.css";
 @import "../../components/deleteInvoice/deleteInvoice.css";
+@import "../../components/editForm/editForm.css";
+@import "../../components/buttons/saveChanges/saveChanges.css";
 * {
     box-sizing: border-box;
     &:focus {
@@ -25,6 +27,24 @@
 
 body {
     margin: 0 0;
+}
+
+.loading {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    & h1 {
+        color: var(--text-color);
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -1.125px;
+    }
 }
 
 :root {

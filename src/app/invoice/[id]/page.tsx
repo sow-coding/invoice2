@@ -11,15 +11,20 @@ import MarkAsPaidBtn from '@/components/markAsPaidBtn/markAsPaidBtn'
 import DeleteBtn from '@/components/deleteBtn/deleteBtn'
 import DeleteInvoice from '@/components/deleteInvoice/deleteInvoice'
 import { useThemeContext } from '@/contexts/theme.context'
+import EditForm from '@/components/editForm/editForm'
+import { useInvoiceIndexContext } from '@/contexts/invoiceIndex.context'
 
 function Page() {
     const {invoices} = useInvoicesContext()
     const params = useParams()
     const router = useRouter()
-    const invoiceIndex = invoices.findIndex((invoice) => (invoice.id === params.id))
+    const {invoiceIndex, setInvoiceIndex} = useInvoiceIndexContext()
+    const invoiceIndexValue = invoices.findIndex((invoice) => (invoice.id === params.id))
+    setInvoiceIndex(invoiceIndexValue)
     const invoiceData = invoices[invoiceIndex]
     const [deleteInvoiceDisplayed, setDeleteInvoiceDisplayed] = useState<boolean>(false)
     const {theme} = useThemeContext()
+    const [editForm, setEditForm] = useState<boolean>(false)
     return (
     <div className={`invoiceDetails`} data-theme={theme}>
       <div className={`invoiceDetailsTop`}>
@@ -35,29 +40,29 @@ function Page() {
       <div className={`invoiceDetailsCenter`}>
         <div className={`invoiceDetailsCenterLeft`}>
           <p>Status</p>
-          {invoiceData.status === "pending" && <Pending/>}
-          {invoiceData.status === "draft" && <Draft />}
-          {invoiceData.status === "pending" || invoiceData.status === "draft" === false && <Paid/>}
+          {invoiceData?.status === "pending" && <Pending/>}
+          {invoiceData?.status === "draft" && <Draft />}
+          {invoiceData?.status === "paid" && <Paid/>}
         </div>
-        <div className={`invoiceDetailsCenterRight`}>
-          <EditBtn invoiceData={invoiceData}/>
+        <div className={`invoiceDetailsCenterRight ${invoiceData?.status === "draft" && "invoiceDetailsCenterRightEdited"}`}>
+          <EditBtn invoiceData={invoiceData} setEditForm={setEditForm}/>
 
           <DeleteBtn setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>
-          <MarkAsPaidBtn />
+          {invoiceData?.status != "draft" && <MarkAsPaidBtn />}
         </div>
       </div>
       <div className={`invoiceDetailsBottom`}>
         
         <div className={`invoiceDetailsBottomTop`}>
           <div className={`invoiceDetailsBottomTopLeft`}>
-            <h4><span>#</span>{invoiceData.id}</h4>
-            <p>{invoiceData.projectDescription}</p>
+            <h4><span>#</span>{invoiceData?.id}</h4>
+            <p>{invoiceData?.projectDescription}</p>
           </div>
           <div className={`invoiceDetailsBottomTopRight`}>
-          <p>{invoiceData.personnalAddress.street}</p>
-          <p>{invoiceData.personnalAddress.city}</p>
-          <p>{invoiceData.personnalAddress.postCode}</p>
-          <p>{invoiceData.personnalAddress.country}</p>
+          <p>{invoiceData?.personnalAddress.street}</p>
+          <p>{invoiceData?.personnalAddress.city}</p>
+          <p>{invoiceData?.personnalAddress.postCode}</p>
+          <p>{invoiceData?.personnalAddress.country}</p>
         </div>
         </div>
 
@@ -66,35 +71,35 @@ function Page() {
           <div className={`invoiceDetailsBottomCenterLeftLeft`}>
             <div className={`invoiceDetailsBottomCenterLeftLeftTop`}>
               <p>Invoice Date</p>
-              <h3>{invoiceData.invoiceDate}</h3>
+              <h3>{invoiceData?.invoiceDate}</h3>
             </div>
             <div className={`invoiceDetailsBottomCenterLeftLeftBottom`}>
               <p>Payment Due</p>
-              <h3>{invoiceData.paymentTerms}</h3>
+              <h3>{invoiceData?.paymentTerms}</h3>
             </div>
           </div>
 
           <div className={`invoiceDetailsBottomCenterLeftRight`}>
             <p>Bill to</p>
             <div className="clientInfos">
-              <h3>{invoiceData.name}</h3>
-              <p>{invoiceData.clientAddress.street}</p>
-              <p>{invoiceData.clientAddress.city}</p>
-              <p>{invoiceData.clientAddress.postCode}</p>
-              <p>{invoiceData.clientAddress.country}</p>
+              <h3>{invoiceData?.name}</h3>
+              <p>{invoiceData?.clientAddress.street}</p>
+              <p>{invoiceData?.clientAddress.city}</p>
+              <p>{invoiceData?.clientAddress.postCode}</p>
+              <p>{invoiceData?.clientAddress.country}</p>
             </div>
           </div>
           </div>
 
           <div className={`invoiceDetailsBottomCenterRight`}>
             <p>Sent to</p>
-            <h2>{invoiceData.email}</h2>
+            <h2>{invoiceData?.email}</h2>
           </div>
         
         </div>
             <div className={`invoiceDetailsBottomBottom`}>
               <div className={`invoicesDetailsBottomBottomItems`}>
-              {invoiceData.items.map((item, index) => (
+              {invoiceData?.items.map((item, index) => (
               <div key={index} className={`invoiceDetailsBottomBottomTop`}>
                 <div className={`invoiceDetailsBottomBottomTopLeft`}>
                   <p>Item Name</p>
@@ -119,7 +124,7 @@ function Page() {
               </div>
               <div className={`invoiceDetailsButtons`}>
                 <div className={`invoiceDetailsButtonsLeft`}>
-                  <EditBtn invoiceData={invoiceData}/>
+                  <EditBtn invoiceData={invoiceData} setEditForm={setEditForm}/>
                 </div>
                 <div className={`invoiceDetailsButtonsRight`}>
                   <DeleteBtn setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>
@@ -128,12 +133,12 @@ function Page() {
               </div>
               <div className={`invoiceDetailsBottomBottomBottom`}>
                 <p>Amont Due</p>
-                <h1>{invoiceData.price} €</h1>
+                <h1>{invoiceData?.price} €</h1>
               </div>
             </div>           
       </div>
       {deleteInvoiceDisplayed && <DeleteInvoice invoiceData={invoiceData} setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>}
-      {/*editForm && <EditInvoiceForm />*/}
+      {editForm && <EditForm invoiceData={invoiceData} setEditForm={setEditForm} />}
     </div>
   )
 }

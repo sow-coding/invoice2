@@ -11,6 +11,9 @@ export interface useCustomHook {
 }
 
 export type invoices = invoiceType[]
+
+export type choice = "Net 1 day" | "Net 7 day" | "Net 14 day" | "Net 30 day";
+
 export interface invoiceType {
   id: string;
   name: string
@@ -20,7 +23,7 @@ export interface invoiceType {
   email: string;
   clientAddress: addressType;
   invoiceDate: string;
-  paymentTerms: string;
+  paymentTerms: choice;
   items: item[];
   projectDescription: string;
 }
