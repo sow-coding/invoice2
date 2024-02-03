@@ -2,7 +2,7 @@
 import InvoiceForm from "@/components/invoiceForm/invoiceForm";
 import InvoicesApp from "@/components/invoicesApp/invoicesApp";
 import SideBar from "@/components/sideBar/sideBar";
-import { useFilterContext } from "@/contexts/filter.context";
+import { useFilterDisplayedContext } from "@/contexts/filterDisplayed.context";
 import { useInvoiceFormContext } from "@/contexts/invoiceForm.context";
 import { useThemeContext } from "@/contexts/theme.context";
 
@@ -39,12 +39,12 @@ export interface item {
   price: number;
   total: number
 }
-
-//localStorage l'array invoices !
+//responsive
+//localStorage l'array invoices et theme
 
 export default function Home() {
   const {theme} = useThemeContext()
-  const {setFilterDisplayed} = useFilterContext()
+  const {setFilterDisplayed} = useFilterDisplayedContext()
   const {invoiceFormDisplayed} = useInvoiceFormContext()
   return (
     <div className="home" data-theme={theme} onClick={() => {

@@ -2,19 +2,20 @@
 import { useCustomHook } from "@/app/page";
 import { Dispatch, SetStateAction, createContext, useContext, useState } from "react";
 
+type Filter = "paidOnly" | "pendignOnly" | "draftOnly" | "";
 interface FilterContext {
-    filterDisplayed: boolean;
-    setFilterDisplayed: Dispatch<SetStateAction<boolean>>;
+    filter: Filter,
+    setFilter: Dispatch<SetStateAction<Filter>>
 }
 
 export const FilterContext = createContext<FilterContext | null>(null)
 
-export default function FilterContextProvider ({children}:useCustomHook) {
-    const [filterDisplayed, setFilterDisplayed] = useState<boolean>(false)
+export default function FilterContextProvider ({children}: useCustomHook) {
+    const [filter, setFilter] = useState<Filter>("")
     return (
         <FilterContext.Provider value={{
-            filterDisplayed: filterDisplayed,
-            setFilterDisplayed: setFilterDisplayed
+            filter: filter,
+            setFilter: setFilter
         }}>
             {children}
         </FilterContext.Provider>
@@ -23,8 +24,8 @@ export default function FilterContextProvider ({children}:useCustomHook) {
 
 export function useFilterContext () {
     const context = useContext(FilterContext)
-    if (!context) {
-        throw new Error ("useFilterContext must be used within FilterContextProvider")
+    if(!context) {
+        throw new Error("useFilterContext must be used within FilterContextProvider")
     }
     return context
-}
+} 

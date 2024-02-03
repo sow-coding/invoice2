@@ -3,9 +3,10 @@ import { League_Spartan } from "next/font/google";
 import "./styles/global.css";
 import ThemeContextProvider from "@/contexts/theme.context";
 import InvoicesContextProvider from "@/contexts/invoices.context";
-import FilterContextProvider from "@/contexts/filter.context";
+import FilterDisplayedContextProvider from "@/contexts/filterDisplayed.context";
 import InvoiceFormContextProvider from "@/contexts/invoiceForm.context";
 import InvoiceIndexProvider from "@/contexts/invoiceIndex.context";
+import FilterContextProvider from "@/contexts/filter.context";
 
 const league = League_Spartan({ subsets: ["latin"] });
 
@@ -24,13 +25,15 @@ export default function RootLayout({
       <body className={league.className}>
         <ThemeContextProvider>
         <InvoicesContextProvider>
-        <FilterContextProvider>
+        <FilterDisplayedContextProvider>
         <InvoiceFormContextProvider>
         <InvoiceIndexProvider>
+        <FilterContextProvider>
           {children}
+        </FilterContextProvider>
         </InvoiceIndexProvider>
         </InvoiceFormContextProvider>
-        </FilterContextProvider>
+        </FilterDisplayedContextProvider>
         </InvoicesContextProvider>
         </ThemeContextProvider>
         </body>

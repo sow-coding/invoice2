@@ -1,12 +1,22 @@
 "use client"
 import { useInvoicesContext } from '@/contexts/invoices.context'
-import React from 'react'
+import React, { useState } from 'react'
 import NewInvoiceButton from '../newInvoiceButton/newInvoiceButton'
+import { useFilterDisplayedContext } from '@/contexts/filterDisplayed.context'
 import { useFilterContext } from '@/contexts/filter.context'
 
 function NavBar() {
     const {invoices} = useInvoicesContext()
-    const {filterDisplayed, setFilterDisplayed} = useFilterContext()
+    const {filterDisplayed, setFilterDisplayed} = useFilterDisplayedContext()
+    const {setFilter}  =useFilterContext()
+    const [draftOnly, setDraftOnly] = useState<boolean>(false)
+    const [pendignOnly, setPendingOnly] = useState<boolean>(false)
+    const [paidOnly, setPaidOnly] = useState<boolean>(false)
+    draftOnly && setFilter("draftOnly");
+    pendignOnly && setFilter("pendignOnly");
+    paidOnly && setFilter("paidOnly");
+    (draftOnly || pendignOnly || paidOnly) === false && setFilter("");
+
     return (
     <div className={`mainMenu`}>
         <div className={`mainMenuLeft`}>
@@ -30,15 +40,27 @@ function NavBar() {
         </div>
         <div className={`filterMenu ${filterDisplayed && "flex"}`}>
         <div className="draftChoice">
-            <input type="checkbox" name="draft" className="draftCheckbox"/>
+            <input type="checkbox" name="draft" className="draftCheckbox" checked={draftOnly} onChange={() => {
+                setDraftOnly(!draftOnly)
+                setPendingOnly(false)
+                setPaidOnly(false)
+            }}/>
             <p>Draft</p>
         </div>
         <div className="pendingChoice">
-            <input  type="checkbox" name="pending" className="pendingCheckbox"/>
+            <input  type="checkbox" name="pending" className="pendingCheckbox" checked={pendignOnly} onChange={() => {
+                setPendingOnly(!pendignOnly)
+                setDraftOnly(false)
+                setPaidOnly(false)
+            }}/>
             <p>Pending</p>
         </div>
         <div className="paidChoice">
-            <input  type="checkbox" name="paid" className="paidCheckbox"/>
+            <input  type="checkbox" name="paid" className="paidCheckbox" checked={paidOnly} onChange={() => {
+                setPaidOnly(!paidOnly)
+                setDraftOnly(false)
+                setPendingOnly(false)
+            }}/>
             <p>Paid</p>
         </div>                
         </div>
