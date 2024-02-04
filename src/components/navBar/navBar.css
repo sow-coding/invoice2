@@ -123,6 +123,7 @@
 @media (max-width: 1000px) and (min-width: 768px) {
   .mainMenu {
     width: 75%;
+    margin-left: 70px;
   }
   .mainMenu .mainMenuRight {
     width: 52%;

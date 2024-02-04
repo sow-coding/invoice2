@@ -1,7 +1,7 @@
 import { useThemeContext } from '@/contexts/theme.context'
 import Image from 'next/image'
 
-interface sidebarProps {
+export interface sidebarProps {
   position: "static" | "relative" | "absolute" | "sticky" | "fixed";
 }
 

@@ -108,6 +108,7 @@ function InvoiceForm() {
                     setPersonnalStreet(e.currentTarget.value)
                 }}/>
                 </div>
+
                 <div className={`billFromBottom`}>
                     <div className={`city`}>
                     <label htmlFor="city">City</label>
@@ -128,6 +129,30 @@ function InvoiceForm() {
                 }}/>
                     </div>
                 </div>
+
+                <div className="billFromBottom2">
+                    <div className="billFromBottom2Top">
+                    <div className={`city`}>
+                        <label htmlFor="city">City</label>
+                        <input type="text" name='city' onChange={(e) => {
+                        setPersonnalCity(e.currentTarget.value)
+                    }}/>
+                        </div>
+                        <div className={`postCode`}>
+                        <label htmlFor="postCode">Postcode</label>
+                        <input type="number" name='postCode' onChange={(e) => {
+                        setPersonnalPostCode(Number(e.currentTarget.value))
+                    }}/>
+                        </div>
+                    </div>
+                        <div className={`country`}>
+                        <label htmlFor="country">Country</label>
+                        <input type="text" name='country' onChange={(e) => {
+                        setPersonnalCountry(e.currentTarget.value)
+                    }}/>
+                    </div>
+                </div>
+
             </div>
             <div className={`invoiceFormCenter`}>
                 <div className={`billToTop`}>
@@ -151,6 +176,7 @@ function InvoiceForm() {
                 }}/>
                     </div>
                 </div>
+
                 <div className={`billToCenter`}>
                     <div className={`clientCity`}>
                     <label htmlFor="clientCity">City</label>
@@ -171,6 +197,30 @@ function InvoiceForm() {
                 }}/>
                     </div>
                 </div>
+
+                <div className={`billToCenter2`}>
+                    <div className="billToCenter2Top">
+                    <div className={`clientCity`}>
+                    <label htmlFor="clientCity">City</label>
+                    <input type="text" name='clientCity' onChange={(e) => {
+                    setClientCity(e.currentTarget.value)
+                }}/>
+                    </div>
+                    <div className={`clientPostCode`}>
+                    <label htmlFor="clientPostCode">Post Code</label>
+                    <input type="number" name='clientPostCode' onChange={(e) => {
+                    setClientPostCode(Number(e.currentTarget.value))
+                }}/>
+                    </div>
+                    </div>
+                    <div className={`clientCountry`}>
+                    <label htmlFor="clientCountry">Country</label>
+                    <input type="text" name='clientCountry' onChange={(e) => {
+                    setClientCountry(e.currentTarget.value)
+                }}/>
+                    </div>
+                </div>
+
             </div>
                 <div className={`invoiceFormBottom`}>
                 
@@ -220,6 +270,7 @@ function InvoiceForm() {
                     {items.map((item, index) => (
                     <div key={index} className={`item`}>
                     <div className={`inputsItemList`}>
+
                     <div className={`itemNameInListInput`}>
                         <label htmlFor="itemNameInList">Item Name</label>
                         <input type="text" name='itemNameInList' onChange={(e) => {
@@ -229,7 +280,7 @@ function InvoiceForm() {
                                 name: e.currentTarget.value
                             }
                             setItems(updatedItems)
-                }}/>
+                        }}/>
                     </div>
                     <div className={`itemQuantityInput`}>
                         <label htmlFor="itemQuantity">Qty.</label>
@@ -269,7 +320,57 @@ function InvoiceForm() {
                         </svg>
                     </div>
                     </div>
-                
+                    <div className={`inputsItemList2`}>
+                        <div className={`itemNameInListInput`}>
+                            <label htmlFor="itemNameInList">Item Name</label>
+                            <input type="text" name='itemNameInList' onChange={(e) => {
+                                const updatedItems = [...items]
+                                updatedItems[index] = {
+                                    ...updatedItems[index],
+                                    name: e.currentTarget.value
+                                }
+                                setItems(updatedItems)
+                            }}/>
+                        </div>   
+                    <div className="inputsItemList2Bottom">
+                        <div className={`itemQuantityInput`}>
+                            <label htmlFor="itemQuantity">Qty.</label>
+                            <input type="number" name='itemQuantity'onChange={(e) => {
+                                const updatedItems = [...items]
+                                updatedItems[index] = {
+                                    ...updatedItems[index],
+                                    quantity: Number(e.currentTarget.value),
+                                }
+                                setItems(updatedItems)                
+                            }}/>
+                        </div>      
+                        <div className={`itemPriceInput`}>
+                            <label htmlFor="itemPrice">Price</label>
+                            <input type="number" name='itemPrice' onChange={(e) => {
+                                const updatedItems = [...items]
+                                updatedItems[index] = {
+                                    ...updatedItems[index],
+                                    price: Number(e.currentTarget.value),
+                                    total: (updatedItems[index].quantity * Number(e.currentTarget.value))
+                                }
+                                setItems(updatedItems)                
+                            }}/>
+                        </div>
+                        <div className={`total`}>
+                            <div className={`totalPrice`}>
+                                <h5>Total</h5>
+                                <p>{(item.price * item.quantity)}</p>
+                            </div>
+                            <svg onClick={()=> {
+                                const newItems = [...items]
+                                newItems.splice(index, 1)
+                                items.length > 1 ? setItems(newItems) : alert("Minimum one item !")
+                            }} className={`trash`} xmlns="http://www.w3.org/2000/svg" width="13" height="16" viewBox="0 0 13 16" fill="#888EB0">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.47225 0L9.36117 0.888875H12.4722V2.66667H0.027832V0.888875H3.13892L4.02783 0H8.47225ZM2.6945 16C1.71225 16 0.916707 15.2045 0.916707 14.2222V3.55554H11.5834V14.2222C11.5834 15.2045 10.7878 16 9.80562 16H2.6945Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    </div>
                 </div>
                     ))}
                 <div onClick={() => {
@@ -293,7 +394,11 @@ function InvoiceForm() {
                     <SaveAndSendButton newInvoice={newInvoice}/>
                 </div>
                 </div>
-                
+                <div className="formButtons2">
+                    <DiscardBtn />
+                    <SaveAsDraftButton newInvoiceDraft={newInvoiceDraft}/>
+                    <SaveAndSendButton newInvoice={newInvoice}/>
+                </div>
             </form>
         </div>
     </div>

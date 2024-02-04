@@ -438,177 +438,275 @@
     }
 }
 
-
-@media (max-width: 1650px) and (min-width: 1450px) {
-    .newInvoiceFormContainer {
-        width: 60%!important;
-    }
+.formButtons2 {
+    display: none;
 }
 
-@media (max-width: 1449px) and (min-width: 1300px) {
-    .newInvoiceFormContainer {
-        width: 67%!important;
-    }
-    .invoiceForm {
-        & .formButtonsRight {
-            width: 44%!important;
-        }
-    }
+.billFromBottom2 {
+    display: none;
 }
 
-@media (max-width: 1229px) and (min-width: 1050px) {
-    .newInvoiceFormContainer {
-        width: 72%!important;
-    }
-    .invoiceForm {
-        & .formButtonsRight {
-            width: 52%!important;
-        }
-    }
+.billToCenter2 {
+    display: none;
 }
 
-@media (max-width: 1049px) and (min-width: 900px) {
-    .newInvoiceFormContainer {
-        width: 77%!important;
-    }
-    .invoiceForm {
-        & .formButtonsRight {
-            width: 58%!important;
-        }
-    }
+.inputsItemList2 {
+    display: none;
 }
 
-@media (max-width: 899px) and (min-width: 769px) {
-    .newInvoiceFormContainer {
-        width: 100vw!important;
-    }
-     .newInvoiceFormQuit {
-        display: none;
-    }
-    .invoiceForm {
-        & .formButtonsRight {
-            width: 50%!important;
-        }
-    }
-}
-
-@media (max-width: 768px) and (min-width: 600px) {
-    .newInvoiceFormContainer {
-        width: 100vw!important;
-    }
-     .newInvoiceFormQuit {
-        display: none;
-    }
-    .invoiceForm {
-        width: 100vw!important;
-        & .formButtonsRight {
-            width: 50%!important;
-        }
-    }
-    .customSideBar {
+@media (max-width: 375px) {
+    .billFromBottom {
         display: none!important;
     }
-}
-
-@media (max-width: 599px) and (min-width: 500px) {
-    .newInvoiceFormContainer {
-        width: 100vw!important;
-    }
-     .newInvoiceFormQuit {
-        display: none;
-    }
-    .invoiceForm {
-        width: 100vw!important;
-        & .formButtonsRight {
-            width: 55%!important;
+    .billFromBottom2 {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin-top: 20px;
+        & input {
+            height: 48px;
         }
+        & .billFromBottom2Top {
+            display: flex;
+            justify-content: space-between;
+            width: 95%;
+            & .city {
+                width: 45%;
+                & input {
+                    width: 100%;
+                    margin-top: 7px;
+                }
+            }
+            & .postCode {
+                width: 45%;
+    
+                & input {
+                    width: 100%;
+                    margin-top: 7px;
+    
+                }
+            }
+        }
+        & .country {
+            width: 95%;
+            margin-top: 20px;
+            & input {
+                width: 100%;
+                margin-top: 7px;
+
+            }
+        }    
     }
-    .customSideBar {
+    .billToCenter {
         display: none!important;
     }
-}
-
-@media (max-width: 499px) and (min-width: 450px) {
-    .newInvoiceFormContainer {
-        width: 100vw!important;
-    }
-     .newInvoiceFormQuit {
-        display: none;
-    }
-    .invoiceForm {
-        width: 100vw!important;
-        & .formButtonsRight {
-            width: 60%!important;
+    .billToCenter2 {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        & input {
+            height: 48px;
         }
+        & .billToCenter2Top {
+            display: flex;
+            justify-content: space-between;
+            width: 95%;
+            & .clientCity {
+                width: 45%;
+                & input {
+                    width: 100%;
+                    margin-top: 7px;
+                }
+            }
+            & .clientPostCode {
+                width: 45%;
+    
+                & input {
+                    width: 100%;
+                    margin-top: 7px;
+    
+                }
+            }
+        }
+        & .clientCountry {
+            width: 95%;
+            margin-top: 20px;
+            & input {
+                width: 100%;
+                margin-top: 7px;
+
+            }
+        }    
     }
-    .customSideBar {
+    .inputsItemList {
         display: none!important;
     }
-}
-
-@media (max-width: 449px) and (min-width: 400px) {
-    .newInvoiceFormContainer {
-        width: 100vw!important;
-    }
-     .newInvoiceFormQuit {
-        display: none;
-    }
-    .invoiceForm {
-        width: 100vw!important;
-        & .formButtonsRight {
-            width: 65%!important;
+     .inputsItemList2 {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        & .itemNameInListInput {
+            display: flex;
+            flex-direction: column;
+            width: 95%;
+            & label {
+                color: #7E88C3;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 15px; 
+                letter-spacing: -0.1px;
+                margin: 0 0 15px 15px;
+    
+            }
+            & input {
+                border-radius: 4px;
+                margin: 0 15px 0 15px;
+                display: flex;
+                flex-direction: column;
+                height: 48px;
+            }
         }
-    }
-    .customSideBar {
-        display: none!important;
-    }
-}
-
-@media (max-width: 399px) and (min-width: 350px) {
-    .newInvoiceFormContainer {
-        width: 100vw!important;
-    }
-     .newInvoiceFormQuit {
-        display: none;
-    }
-    .invoiceForm {
-        width: 100vw!important;
-        & .formButtonsRight {
-            width: 73%!important;
-            & button {
-                width: 108px!important;
-                margin: 0 2.5px;
+        .inputsItemList2Bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 95%;
+            margin-top: 20px;
+            & .itemQuantityInput {
+                display: flex;
+                flex-direction: column;
+                width: 15%;
+            }
+            & .itemPriceInput {
+                display: flex;
+                flex-direction: column;
+                width: 25%;
+            }
+            & label {
+                color: #7E88C3;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 15px; 
+                letter-spacing: -0.1px;
+                //margin: 0 0 15px 15px;
+    
+            }
+            & input {
+                border-radius: 4px;
+                margin: 0 15px 0 15px;
+                display: flex;
+                flex-direction: column;
+                height: 48px;
+                width: 54px;
+            }
+            & .total {
+                display: flex;
+                align-items: center;
+                & .totalPrice {
+                    & h5 {
+                        color: #7E88C3;
+                        font-size: 13px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 15px; /* 115.385% */
+                        letter-spacing: -0.1px;
+                        margin: 10px 0px 10px 0px;
+                    }
+                    & p {
+                        color: #888EB0;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 15px; /* 100% */
+                        letter-spacing: -0.25px;
+                        margin: 10px 0px 10px 0px;
+    
+                    }
+                }
+                & .trash {
+                    margin-left: 35px;
+                    width: 20px;
+                    height: 24px;
+                    margin-top: 15px;
+                    & path {
+                        &:hover {
+                            fill: red!important;
+                        }
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }
-    .customSideBar {
-        display: none!important;
+}
+
+@media (max-width: 660px) {
+    .itemQuantityInput {
+        & input {
+            width: 44px;
+        }
+    }
+    .itemNameInListInput {
+        & input {
+            margin-right: 7px!important;
+        }
     }
 }
 
-@media (max-width: 349px) and (min-width: 300px) {
-    .newInvoiceFormContainer {
-        width: 100vw!important;
-    }
-     .newInvoiceFormQuit {
-        display: none;
-    }
-    .invoiceForm {
-        width: 100vw!important;
-        & .formButtonsLeft {
-            & button {
-                width: 80px;
-            }
+
+@media (max-width: 1020px) {
+    .invoiceFormContainer {
+        width: 100%;
+        & .invoiceForm {
+            width: 100%;
         }
-        & .formButtonsRight {
-            width: 79%!important;
-            & button {
-                width: 105px!important;
-                margin: 1.5px;
-            }
+        & .sideBar {
+            display: none!important;
         }
     }
-    .customSideBar {
-        display: none!important;
+}
+
+@media (max-width: 635px) {
+    .invoiceFormContainer {
+        & .invoiceForm {
+            & .formButtons {
+                display: none;
+            }
+            & .formButtons2 {
+                position: sticky;
+                bottom: 0;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                z-index: 1;
+                border-radius: 0px 20px 20px 0px;
+                background: var(--invoice-bg);
+                padding-top: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 475px) {
+    .invoiceFormContainer {
+        & .invoiceForm {
+            padding: 20px 10px;
+        }
+    }
+}
+
+@media (max-width: 395px) {
+    .invoiceFormContainer {
+        & .invoiceForm {
+            & .formButtons2 {
+                & button {
+                    width: 117px;
+                }
+            }
+        }
     }
 }
