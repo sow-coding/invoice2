@@ -68,4 +68,23 @@
   font-weight: 700;
   line-height: 24px;
   letter-spacing: -0.25px;
+}
+
+@media (max-width: 768px) and (min-width: 600px) {
+  .invoicesList {
+    width: 85%;
+  }
+}
+@media (max-width: 600px) and (min-width: 550px) {
+  .invoicesList {
+    width: 95%;
+  }
+  .invoicesList .invoice {
+    padding-right: 10px;
+  }
+}
+@media (max-width: 549px) {
+  .invoicesList {
+    width: 90%;
+  }
 }/*# sourceMappingURL=invoiceList.css.map */

@@ -73,7 +73,7 @@
     .sideBar {
         height: auto;
         width: 100%;
-        position: relative;
+        position: relative!important;
         flex-direction: row;
         justify-content: space-between;
         border-radius: 0;

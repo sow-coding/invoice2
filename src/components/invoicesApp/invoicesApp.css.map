@@ -1,1 +1,1 @@
-{"version":3,"sources":["invoicesApp.scss","invoicesApp.css"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;ACCJ","file":"invoicesApp.css"}
+{"version":3,"sources":["invoicesApp.scss","invoicesApp.css"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;ACCJ;;ADEA;EACI;IACI,eAAA;ECCN;AACF","file":"invoicesApp.css"}

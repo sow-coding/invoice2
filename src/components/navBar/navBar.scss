@@ -138,7 +138,7 @@
 
 @media (max-width: 768px) and (min-width: 650px) {
     .mainMenu {
-        width: 80%;
+        width: 83%;
         & .mainMenuRight {
             width: 57.5%;
         }
@@ -154,6 +154,26 @@
     }
     .filterButton {
         width: 42%!important;
+    }
+}
+
+@media (max-width: 550px) {
+    .mainMenu {
+        & span {
+            display: none;
+        }
+        .mainMenuRight {
+            & .filterButton {
+                justify-content: center;
+                & p {
+                    margin-right: 7px;
+                    font-size: 18px;
+                }
+            }
+        }
+        & .newInvoiceButton {
+            width: 90px;
+        }
     }
 }
 
@@ -183,7 +203,7 @@
             }
         }
         & .mainMenuRight {
-            width: 50%;
+            width: 60%;
             & span {
                 display: none;
             }

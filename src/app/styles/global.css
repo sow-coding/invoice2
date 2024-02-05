@@ -99,6 +99,10 @@ input {
   overflow-x: hidden;
 }
 
+.overflowHidden {
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
   .home {
     flex-direction: column;

@@ -1,7 +1,7 @@
 "use client"
 import InvoiceForm from "@/components/invoiceForm/invoiceForm";
 import InvoicesApp from "@/components/invoicesApp/invoicesApp";
-import SideBar, { sidebarProps } from "@/components/sideBar/sideBar";
+import SideBar from "@/components/sideBar/sideBar";
 import { useFilterDisplayedContext } from "@/contexts/filterDisplayed.context";
 import { useInvoiceFormContext } from "@/contexts/invoiceForm.context";
 import { useThemeContext } from "@/contexts/theme.context";
@@ -40,7 +40,6 @@ export interface item {
   price: number;
   total: number
 }
-//responsive
 //localStorage l'array invoices et theme
 
 type sidebarPosition = "static" | "relative" | "absolute" | "sticky" | "fixed";
@@ -66,7 +65,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <div className="home" data-theme={theme} onClick={() => {
+    <div className={`home ${invoiceFormDisplayed && "overflowHidden"}`} data-theme={theme} onClick={() => {
       setFilterDisplayed(false)
     }}>
       {invoiceFormDisplayed ? <InvoiceForm /> : <SideBar position={sidebarPosition}/>}

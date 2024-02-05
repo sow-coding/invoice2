@@ -29,6 +29,21 @@ function Invoice(props:InvocieProps) {
             </svg>
             </div>
         </div>
+        <div className="invoice2">
+        <div className={`invoiceLeft2`}>
+            <h4><span>#</span>{invoiceData.id}</h4>
+            <p>{invoiceData.name}</p>
+            </div>
+            <div className={`invoiceRight2`}>
+                <div className="invoiceRight2Left">
+                <p>Due {invoiceData.invoiceDate}</p>
+                <h2>{invoiceData.price} €</h2>
+            </div>
+            {invoiceData.status === "pending" && <Pending />}
+            {invoiceData.status === "draft" && <Draft />}
+            {invoiceData.status === "paid" && <Paid />}
+            </div>           
+        </div>
     </Link>
     );
 }
