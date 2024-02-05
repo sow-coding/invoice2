@@ -103,7 +103,7 @@ function InvoiceForm() {
             <div className={`invoiceFormTop`}>
                 <h5 className={`billFromTitle`}>Bill from</h5>
                 <div className={`billFromTop`}>
-                <label htmlFor="address">Street Address</label>
+                <label id="address">Street Address</label>
                 <input type="text" name='address' onChange={(e) => {
                     setPersonnalStreet(e.currentTarget.value)
                 }}/>
@@ -111,19 +111,19 @@ function InvoiceForm() {
 
                 <div className={`billFromBottom`}>
                     <div className={`city`}>
-                    <label htmlFor="city">City</label>
+                    <label id="city">City</label>
                     <input type="text" name='city' onChange={(e) => {
                     setPersonnalCity(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`postCode`}>
-                    <label htmlFor="postCode">Postcode</label>
+                    <label id="postCode">Postcode</label>
                     <input type="number" name='postCode' onChange={(e) => {
                     setPersonnalPostCode(Number(e.currentTarget.value))
                 }}/>
                     </div>
                     <div className={`country`}>
-                    <label htmlFor="country">Country</label>
+                    <label id="country">Country</label>
                     <input type="text" name='country' onChange={(e) => {
                     setPersonnalCountry(e.currentTarget.value)
                 }}/>
@@ -133,20 +133,20 @@ function InvoiceForm() {
                 <div className="billFromBottom2">
                     <div className="billFromBottom2Top">
                     <div className={`city`}>
-                        <label htmlFor="city">City</label>
+                        <label id="city">City</label>
                         <input type="text" name='city' onChange={(e) => {
                         setPersonnalCity(e.currentTarget.value)
                     }}/>
                         </div>
                         <div className={`postCode`}>
-                        <label htmlFor="postCode">Postcode</label>
+                        <label id="postCode">Postcode</label>
                         <input type="number" name='postCode' onChange={(e) => {
                         setPersonnalPostCode(Number(e.currentTarget.value))
                     }}/>
                         </div>
                     </div>
                         <div className={`country`}>
-                        <label htmlFor="country">Country</label>
+                        <label id="country">Country</label>
                         <input type="text" name='country' onChange={(e) => {
                         setPersonnalCountry(e.currentTarget.value)
                     }}/>
@@ -158,19 +158,19 @@ function InvoiceForm() {
                 <div className={`billToTop`}>
                     <h5 className={`billToTitle`}>Bill to</h5>
                     <div className={`clientName`}>
-                    <label htmlFor="clientName">Client´s Name</label>
+                    <label id="clientName">Client´s Name</label>
                     <input type="text" name='clientName'  onChange={(e) => {
                     setClientName(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`clientEmail`}>
-                    <label htmlFor="clientEmail">Client´s Email</label>
+                    <label id="clientEmail">Client´s Email</label>
                     <input type="text" placeholder='e.g. email@example.com' name='clientEmail' onChange={(e) => {
                     setClientEmail(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`clientStreetAddress`}>
-                    <label htmlFor="clientStreetAddress">Street Address</label>
+                    <label id="clientStreetAddress">Street Address</label>
                     <input type="text" name='clientStreetAddress' onChange={(e) => {
                     setClientStreet(e.currentTarget.value)
                 }}/>
@@ -179,19 +179,19 @@ function InvoiceForm() {
 
                 <div className={`billToCenter`}>
                     <div className={`clientCity`}>
-                    <label htmlFor="clientCity">City</label>
+                    <label id="clientCity">City</label>
                     <input type="text" name='clientCity' onChange={(e) => {
                     setClientCity(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`clientPostCode`}>
-                    <label htmlFor="clientPostCode">Post Code</label>
+                    <label id="clientPostCode">Post Code</label>
                     <input type="number" name='clientPostCode' onChange={(e) => {
                     setClientPostCode(Number(e.currentTarget.value))
                 }}/>
                     </div>
                     <div className={`clientCountry`}>
-                    <label htmlFor="clientCountry">Country</label>
+                    <label id="clientCountry">Country</label>
                     <input type="text" name='clientCountry' onChange={(e) => {
                     setClientCountry(e.currentTarget.value)
                 }}/>
@@ -201,20 +201,20 @@ function InvoiceForm() {
                 <div className={`billToCenter2`}>
                     <div className="billToCenter2Top">
                     <div className={`clientCity`}>
-                    <label htmlFor="clientCity">City</label>
+                    <label id="clientCity">City</label>
                     <input type="text" name='clientCity' onChange={(e) => {
                     setClientCity(e.currentTarget.value)
                 }}/>
                     </div>
                     <div className={`clientPostCode`}>
-                    <label htmlFor="clientPostCode">Post Code</label>
+                    <label id="clientPostCode">Post Code</label>
                     <input type="number" name='clientPostCode' onChange={(e) => {
                     setClientPostCode(Number(e.currentTarget.value))
                 }}/>
                     </div>
                     </div>
                     <div className={`clientCountry`}>
-                    <label htmlFor="clientCountry">Country</label>
+                    <label id="clientCountry">Country</label>
                     <input type="text" name='clientCountry' onChange={(e) => {
                     setClientCountry(e.currentTarget.value)
                 }}/>
@@ -227,14 +227,14 @@ function InvoiceForm() {
                 <div className={`invoiceFormBottomTop`}>
                     <div className={`invoiceFormBottomTopTop`}>
                     <div className={`invoiceDate`}>
-                        <label htmlFor="invoiceDate">Invoice Date</label>
+                        <label id="invoiceDate">Invoice Date</label>
                         <input type="date" onChange={(e) => {
                     setInvoiceDate(e.currentTarget.value)
                 }}/>
                     </div>
 
                     <div className={`paymentTerms`}>
-                        <label htmlFor="paymentTerms">Payment Terms</label>
+                        <label id="paymentTerms">Payment Terms</label>
                         <div className={`paymentTermsInputContainer`}>
                         <input onClick={(e) => {e.stopPropagation(),setPaymentTermsDowned(!paymentTermsDowned)}} placeholder='Net 30 days' readOnly className={`paymentTermsInput`} type="text" name='paymentTerms'                   
                         value={paymentTerms}/>
@@ -257,7 +257,7 @@ function InvoiceForm() {
 
                     </div>
                     <div className={`invoiceFormBottomTopBottom`}>
-                    <label htmlFor="projectDescription">Project Description</label>
+                    <label id="projectDescription">Project Description</label>
                     <input type="text" placeholder='e.g. Graphic Design Service' name='projectDescription' onChange={(e) => {
                     setProjectDescription(e.currentTarget.value)
                 }}/>
@@ -272,7 +272,7 @@ function InvoiceForm() {
                     <div className={`inputsItemList`}>
 
                     <div className={`itemNameInListInput`}>
-                        <label htmlFor="itemNameInList">Item Name</label>
+                        <label id="itemNameInList">Item Name</label>
                         <input type="text" name='itemNameInList' onChange={(e) => {
                             const updatedItems = [...items]
                             updatedItems[index] = {
@@ -283,7 +283,7 @@ function InvoiceForm() {
                         }}/>
                     </div>
                     <div className={`itemQuantityInput`}>
-                        <label htmlFor="itemQuantity">Qty.</label>
+                        <label id="itemQuantity">Qty.</label>
                         <input type="number" name='itemQuantity'onChange={(e) => {
                             const updatedItems = [...items]
                             updatedItems[index] = {
@@ -294,7 +294,7 @@ function InvoiceForm() {
                         }}/>
                     </div>      
                     <div className={`itemPriceInput`}>
-                        <label htmlFor="itemPrice">Price</label>
+                        <label id="itemPrice">Price</label>
                         <input type="number" name='itemPrice' onChange={(e) => {
                             const updatedItems = [...items]
                             updatedItems[index] = {
@@ -322,7 +322,7 @@ function InvoiceForm() {
                     </div>
                     <div className={`inputsItemList2`}>
                         <div className={`itemNameInListInput`}>
-                            <label htmlFor="itemNameInList">Item Name</label>
+                            <label id="itemNameInList">Item Name</label>
                             <input type="text" name='itemNameInList' onChange={(e) => {
                                 const updatedItems = [...items]
                                 updatedItems[index] = {
@@ -334,7 +334,7 @@ function InvoiceForm() {
                         </div>   
                     <div className="inputsItemList2Bottom">
                         <div className={`itemQuantityInput`}>
-                            <label htmlFor="itemQuantity">Qty.</label>
+                            <label id="itemQuantity">Qty.</label>
                             <input type="number" name='itemQuantity'onChange={(e) => {
                                 const updatedItems = [...items]
                                 updatedItems[index] = {
@@ -345,7 +345,7 @@ function InvoiceForm() {
                             }}/>
                         </div>      
                         <div className={`itemPriceInput`}>
-                            <label htmlFor="itemPrice">Price</label>
+                            <label id="itemPrice">Price</label>
                             <input type="number" name='itemPrice' onChange={(e) => {
                                 const updatedItems = [...items]
                                 updatedItems[index] = {

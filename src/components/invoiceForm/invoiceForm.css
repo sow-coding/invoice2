@@ -617,6 +617,9 @@
   }
 }
 @media (max-width: 1020px) {
+  .calc {
+    position: relative;
+  }
   .invoiceFormContainer {
     width: 100%;
   }
@@ -628,6 +631,12 @@
   }
 }
 @media (max-width: 635px) {
+  .invoiceFormContainer .invoiceForm {
+    margin: 5px 0;
+  }
+  .invoiceFormContainer .invoiceForm .itemList {
+    margin-bottom: 20px !important;
+  }
   .invoiceFormContainer .invoiceForm .formButtons {
     display: none;
   }
@@ -641,6 +650,7 @@
     border-radius: 0px 20px 20px 0px;
     background: var(--invoice-bg);
     padding-top: 20px;
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 475px) {
