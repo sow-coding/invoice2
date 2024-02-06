@@ -10,6 +10,17 @@
     background-color: rgba(0, 0, 0, 0.3); 
 }
 
+.invoiceForm::-webkit-scrollbar {
+    background-color: var(--bg-color);
+    width: 8px;
+}
+
+.invoiceForm::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    height: 112px;
+    border-radius: 4px;
+}
+
 .invoiceFormContainer {
     display: flex;
     height: 100vh;
@@ -26,15 +37,6 @@
         z-index: -1;
         padding: 20px 40px 0 40px;
         position: relative;
-        &::-webkit-scrollbar {
-            background-color: var(--bg-color);
-            width: 8px;
-          }
-         &::-webkit-scrollbar-thumb {
-            background:var(--border-color);
-            height: 112px;
-            border-radius: 4px;
-        }
         & input {
             border-radius: 4px;
             background: #FFF;
