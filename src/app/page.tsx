@@ -65,7 +65,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <div className={`home/`} data-theme={theme} onClick={() => {
+    <div className={`home`} data-theme={theme} onClick={() => {
       setFilterDisplayed(false)
     }}>
       {invoiceFormDisplayed ? <InvoiceForm /> : <SideBar position={sidebarPosition}/>}
