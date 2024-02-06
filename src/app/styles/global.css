@@ -29,7 +29,6 @@ body {
   margin: 0 0;
   height: 100vh;
   background-color: var(--bg-color);
-  overflow-x: hidden;
 }
 
 input {
@@ -96,7 +95,6 @@ input {
   height: 100%;
   display: flex;
   background-color: var(--bg-color);
-  overflow-x: hidden;
 }
 
 .overflowHidden {

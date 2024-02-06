@@ -645,6 +645,18 @@
     }
 }
 
+@media (max-width: 1020px) {
+    .invoiceForm::-webkit-scrollbar {
+        width: auto!important; 
+    }
+    
+    .invoiceForm::-webkit-scrollbar-thumb {
+        background: initial!important; 
+        height: initial!important; 
+        border-radius: initial!important; 
+    }
+}
+
 @media (max-width: 660px) {
     .itemQuantityInput {
         & input {
