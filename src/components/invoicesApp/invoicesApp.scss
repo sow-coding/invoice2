@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.displayNone {
+    display: none!important;
+}
+
 @media (max-width: 550px) {
     .invoicesApp {
         padding: 0 10px;

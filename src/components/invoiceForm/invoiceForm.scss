@@ -373,7 +373,7 @@
                     font-size: 13px;
                     font-style: normal;
                     font-weight: 500;
-                    line-height: 15px; /* 115.385% */
+                    line-height: 15px; 
                     letter-spacing: -0.1px;
                     margin: 10px 0px 10px 0px;
                 }
@@ -382,7 +382,7 @@
                     font-size: 15px;
                     font-style: normal;
                     font-weight: 700;
-                    line-height: 15px; /* 100% */
+                    line-height: 15px; 
                     letter-spacing: -0.25px;
                     margin: 10px 0px 10px 0px;
 
@@ -590,7 +590,6 @@
                 font-weight: 500;
                 line-height: 15px; 
                 letter-spacing: -0.1px;
-                //margin: 0 0 15px 15px;
     
             }
             & input {
@@ -610,7 +609,7 @@
                         font-size: 13px;
                         font-style: normal;
                         font-weight: 500;
-                        line-height: 15px; /* 115.385% */
+                        line-height: 15px; 
                         letter-spacing: -0.1px;
                         margin: 10px 0px 10px 0px;
                     }
@@ -657,23 +656,45 @@
     }
 }
 
-//retirer calc bug
 @media (max-width: 1020px) {
     .calc {
         position: relative;
+        width: 100%;
+        height: 100vh;
     }
     .invoiceFormContainer {
         width: 100%;
+        height: 100%;
+        & .sideBar {
+            display: none;
+        }
         & .invoiceForm {
             width: 100%;
-        }
-        & .sideBar {
-            display: none!important;
+            height: 100%;
+            margin: 5px 0;
+            & .itemList {
+                margin-bottom: 20px!important;
+            }
+            & .formButtons {
+                display: none;
+            }
+            & .formButtons2 {
+                position: relative;
+                bottom: 0;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                z-index: 1;
+                border-radius: 0px 20px 20px 0px;
+                background: var(--invoice-bg);
+                padding-top: 20px;
+                margin-bottom: 30px;
+            }
         }
     }
 }
 
-@media (max-width: 635px) {
+/*@media (max-width: 635px) {
     .invoiceFormContainer {
         & .invoiceForm {
             margin: 5px 0;
@@ -697,7 +718,7 @@
             }
         }
     }
-}
+}*/
 
 @media (max-width: 475px) {
     .invoiceFormContainer {
