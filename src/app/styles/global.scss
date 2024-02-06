@@ -18,11 +18,42 @@
 @import "../../components/deleteInvoice/deleteInvoice.css";
 @import "../../components/editForm/editForm.css";
 @import "../../components/buttons/saveChanges/saveChanges.css";
+
 * {
     box-sizing: border-box;
     &:focus {
         outline: none;
     }
+}
+
+:root {
+    --bg-color: #F8F8FB;
+    --text-color: #0C0E16;
+    --p-purple: #7E88C3;
+    --invoice-bg: #fff;
+    --purple: #7C5DFA;
+    --purple-hover: #9277FF;
+    --red: #EC5757;
+    --red-hover: #FF9797;
+    --lightGray: #888EB0;
+    --items-bg: #F9FAFE;
+    --border-color: #DFE3FA;
+    --input-bg: #fff;
+}
+
+[data-theme=dark] {
+    --bg-color: #141625;
+    --text-color: #fff;
+    --p-purple: #7E88C3;
+    --invoice-bg: #1E2139;
+    --purple: #7C5DFA;
+    --purple-hover: #9277FF;
+    --red: #EC5757;
+    --red-hover: #FF9797;
+    --lightGray: #888EB0;
+    --items-bg: #252945;
+    --border-color: #252945;
+    --input-bg: #1E2139;
 }
 
 body {
@@ -60,36 +91,6 @@ input {
     }
 }
 
-:root {
-    --bg-color: #F8F8FB;
-    --text-color: #0C0E16;
-    --p-purple: #7E88C3;
-    --invoice-bg: #fff;
-    --purple: #7C5DFA;
-    --purple-hover: #9277FF;
-    --red: #EC5757;
-    --red-hover: #FF9797;
-    --lightGray: #888EB0;
-    --items-bg: #F9FAFE;
-    --border-color: #DFE3FA;
-    --input-bg: #fff;
-}
-
-[data-theme=dark] {
-    --bg-color: #141625;
-    --text-color: #fff;
-    --p-purple: #7E88C3;
-    --invoice-bg: #1E2139;
-    --purple: #7C5DFA;
-    --purple-hover: #9277FF;
-    --red: #EC5757;
-    --red-hover: #FF9797;
-    --lightGray: #888EB0;
-    --items-bg: #252945;
-    --border-color: #252945;
-    --input-bg: #1E2139;
-}
-
 .home {
     width: 100%;
     height: 100%;
@@ -97,8 +98,8 @@ input {
     background-color: var(--bg-color);
 }
 
-.overflowHidden {
-    overflow: hidden;
+.overflowYHidden {
+    overflow-y: hidden;
 }
 
 @media (max-width: 768px) {

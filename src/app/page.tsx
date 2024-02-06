@@ -40,15 +40,32 @@ export interface item {
   price: number;
   total: number
 }
-//localStorage l'array invoices et theme
-
 type sidebarPosition = "static" | "relative" | "absolute" | "sticky" | "fixed";
+
+//TODO: regler probleme light/dark mode non syncro avec body
+//TODO: localStorage l'array invoices et theme
 
 export default function Home() {
   const {theme} = useThemeContext()
   const {setFilterDisplayed} = useFilterDisplayedContext()
-  const {invoiceFormDisplayed} = useInvoiceFormContext()
+  const {invoiceFormDisplayed, setInvoiceFormDisplayed} = useInvoiceFormContext()
   const [sidebarPosition, setSidebarPosition] = useState<sidebarPosition>("fixed")
+  const [displayNone, setDisplayNone] = useState<boolean>(false)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1021) {
+        setDisplayNone(true);
+      } else {
+        setDisplayNone(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 769) {
@@ -65,10 +82,12 @@ export default function Home() {
     };
   }, []);
   return (
-    <div className={`home`} data-theme={theme} onClick={() => {
+    <div className={`home ${(invoiceFormDisplayed && displayNone) && "overflowYHidden"}`} data-theme={theme} onClick={() => {
       setFilterDisplayed(false)
     }}>
-      {invoiceFormDisplayed ? <InvoiceForm /> : <SideBar position={sidebarPosition}/>}
+      {invoiceFormDisplayed ? <div className="calc" onClick={() => {setInvoiceFormDisplayed(false)}}> 
+        <InvoiceForm />
+      </div> : <SideBar position={sidebarPosition}/>}
       <InvoicesApp />
     </div>
   );

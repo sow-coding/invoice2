@@ -46,13 +46,11 @@
 }
 .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
   display: flex;
-  width: 15%;
   justify-content: space-between;
   align-items: center;
   margin-left: 50px;
 }
 .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft div {
-  width: 70%;
   margin-left: 25px;
 }
 .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft p {
@@ -60,15 +58,17 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
-  line-height: 15px; /* 115.385% */
+  line-height: 15px;
   letter-spacing: -0.1px;
 }
 .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
   display: flex;
-  width: 40%;
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
+}
+.invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight div {
+  margin: 0 15px;
 }
 .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRightEdited {
   justify-content: flex-end !important;
@@ -235,7 +235,7 @@
   align-self: center;
   margin-bottom: 30px;
 }
-.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoicesDetailsBottomBottomItems {
+.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -243,20 +243,21 @@
   overflow-y: auto;
   max-height: 130px;
   padding-top: 20px;
+  border-radius: 8px 8px 0px 0px;
 }
-.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoicesDetailsBottomBottomItems .invoiceDetailsBottomBottomTop {
+.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems .invoiceDetailsBottomBottomTop {
   display: flex;
   width: 100%;
   height: 100%;
   background-color: var(--items-bg);
   justify-content: space-between;
 }
-.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoicesDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopLeft {
+.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopLeft {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
 }
-.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoicesDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopLeft p {
+.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopLeft p {
   color: var(--p-purple);
   font-size: 13px;
   font-style: normal;
@@ -264,7 +265,7 @@
   line-height: 18px;
   letter-spacing: -0.1px;
 }
-.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoicesDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopLeft h4 {
+.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopLeft h4 {
   color: var(--text-color);
   font-size: 15px;
   font-style: normal;
@@ -272,13 +273,13 @@
   line-height: 15px;
   letter-spacing: -0.25px;
 }
-.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoicesDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopRight {
+.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopRight {
   display: flex;
   width: 50%;
   justify-content: space-between;
   margin-right: 50px;
 }
-.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoicesDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopRight p {
+.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopRight p {
   color: var(--p-purple);
   font-size: 13px;
   font-style: normal;
@@ -286,7 +287,7 @@
   line-height: 18px;
   letter-spacing: -0.1px;
 }
-.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoicesDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopRight h4 {
+.invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems .invoiceDetailsBottomBottomTop .invoiceDetailsBottomBottomTopRight h4 {
   color: var(--text-color);
   font-size: 15px;
   font-style: normal;
@@ -322,223 +323,124 @@
   letter-spacing: -0.5px;
   margin-right: 30px;
 }
-
-.invoiceDetailsButtons {
+.invoiceDetails .invoiceDetailsButtons {
+  display: none;
+}
+.invoiceDetails .invoiceDetailsBottomBottomItems2 {
   display: none;
 }
 
-@media (max-height: 599px) {
+@media (max-width: 850px) and (min-width: 650px) {
+  .invoiceDetails .invoiceDetailsTop {
+    width: 95%;
+  }
   .invoiceDetails .invoiceDetailsCenter {
-    margin-bottom: 24px;
+    width: 95%;
   }
-}
-@media (max-width: 1700px) and (min-width: 1500px) {
+  .invoiceDetails .invoiceDetailsBottom {
+    width: 95%;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter {
+    width: 90%;
+    height: auto;
+    margin: 0 0 50px 0;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft {
+    justify-content: space-around;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomTop {
+    margin: 30px 20px 20px 20px;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomTop .invoiceDetailsBottomTopRight {
+    margin-right: 20px;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomTop .invoiceDetailsBottomTopLeft {
+    margin-left: 20px;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom {
+    width: 90%;
+  }
   .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
-    width: 20% !important;
+    margin-left: 20px;
   }
   .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
-    width: 50% !important;
+    margin-right: 0;
   }
 }
-@media (max-width: 1499px) and (min-width: 1300px) {
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
-    width: 25% !important;
+@media (max-width: 649px) {
+  .invoiceDetails .invoiceDetailsCenter {
+    justify-content: center;
   }
   .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
-    width: 52.5% !important;
-  }
-}
-@media (max-width: 1299px) and (min-width: 1100px) {
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
-    width: 25% !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
-    width: 50% !important;
-  }
-}
-@media (max-width: 1099px) and (min-width: 900px) {
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
-    width: 27.5% !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
-    width: 52.5% !important;
-  }
-}
-@media (max-width: 899px) and (min-width: 761px) {
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
-    width: 30% !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
-    width: 52.5% !important;
-  }
-}
-@media (max-width: 760px) and (min-width: 501px) {
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
-    width: 100% !important;
-    justify-content: space-between !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft div {
-    width: 35% !important;
-    margin-right: 25px !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
-    display: none !important;
-  }
-  .invoiceDetails .invoiceDetailsButtons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
-  }
-  .invoiceDetails .invoiceDetailsButtons .invoiceDetailsButtonsLeft {
-    margin-left: 25px;
-  }
-  .invoiceDetails .invoiceDetailsButtons .invoiceDetailsButtonsRight {
-    display: flex;
-    width: 45%;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 25px;
-  }
-}
-@media (max-width: 500px) and (min-width: 380px) {
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
-    width: 100% !important;
-    justify-content: space-between !important;
-    margin: 20px 0px 20px 50px !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft div {
-    width: 50% !important;
-    margin-right: 25px !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
-    display: none !important;
-  }
-  .invoiceDetails .invoiceDetailsButtons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
-  }
-  .invoiceDetails .invoiceDetailsButtons .invoiceDetailsButtonsLeft {
-    margin-left: 25px;
-  }
-  .invoiceDetails .invoiceDetailsButtons .invoiceDetailsButtonsRight {
-    display: flex;
-    width: 50%;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 25px;
-  }
-}
-@media (max-width: 379px) and (min-width: 320px) {
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
-    width: 100% !important;
-    justify-content: space-between !important;
-    margin: 20px 0px 20px 50px !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft div {
-    width: 60% !important;
-    margin-right: 25px !important;
-  }
-  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterRight {
-    display: none !important;
-  }
-  .invoiceDetails .invoiceDetailsButtons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
-  }
-  .invoiceDetails .invoiceDetailsButtons .invoiceDetailsButtonsLeft {
-    margin-left: 25px;
-  }
-  .invoiceDetails .invoiceDetailsButtons .invoiceDetailsButtonsRight {
-    display: flex;
-    width: 55%;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 25px;
-  }
-}
-@media (max-width: 768px) and (min-width: 650px) {
-  .listOfInvoices {
-    width: 78%;
-  }
-  .invoice {
-    flex-direction: column;
-    align-items: center;
-    height: auto !important;
-  }
-  .invoice .invoiceLeft {
-    width: 100% !important;
-  }
-  .invoice .invoiceRight {
-    width: 100% !important;
-  }
-  .invoice svg {
     display: none;
   }
-}
-@media (max-width: 649px) and (min-width: 400px) {
-  .invoiceDetailsBottom {
-    height: auto !important;
-    align-items: center;
-  }
-  .invoiceDetailsBottom .invoiceDetailsBottomTop {
-    display: flex;
-    flex-direction: row;
+  .invoiceDetails .invoiceDetailsCenter .invoiceDetailsCenterLeft {
+    margin: 0 0;
+    width: 85%;
     justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    margin: 30px 50px 100px 50px !important;
   }
-  .invoiceDetailsBottom .invoiceDetailsBottomTop .invoiceDetailsBottomTopLeft {
-    margin-left: 50px !important;
-  }
-  .invoiceDetailsBottom .invoiceDetailsBottomTop .invoiceDetailsBottomTopRight {
-    margin-right: 50px !important;
-  }
-  .invoiceDetailsBottom .invoiceDetailsBottomCenter {
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomTop {
     display: flex;
     flex-direction: column;
-  }
-  .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft {
-    width: 100% !important;
-    justify-content: space-between;
-  }
-}
-@media (max-width: 399px) {
-  .invoiceDetailsBottom {
-    height: auto !important;
-    align-items: center;
-  }
-  .invoiceDetailsBottom .invoiceDetailsBottomTop {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
-    margin: 30px 50px 0px 50px !important;
+    margin: 20px 0 70px 30px;
   }
-  .invoiceDetailsBottom .invoiceDetailsBottomTop .invoiceDetailsBottomTopLeft {
-    margin-left: 20px !important;
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomTop .invoiceDetailsBottomTopRight {
+    margin: 0 0;
   }
-  .invoiceDetailsBottom .invoiceDetailsBottomTop .invoiceDetailsBottomTopRight {
-    margin-right: 30px !important;
-    width: 40%;
-  }
-  .invoiceDetailsBottom .invoiceDetailsBottomCenter {
-    display: flex;
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter {
     flex-direction: column;
+    justify-content: center;
+    margin: 0 20px 20px 20px;
+    width: 95%;
   }
-  .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft {
-    margin: 30px 0 !important;
-    width: 100% !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft {
+    width: 100%;
+    justify-content: space-between;
+    margin: 0 0;
   }
-  .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterRight {
-    margin-bottom: 40px !important;
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft .invoiceDetailsBottomCenterLeftRight {
+    margin-right: 10px;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft .invoiceDetailsBottomCenterLeftRight h3, .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft .invoiceDetailsBottomCenterLeftRight p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems {
+    display: none !important;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    background-color: var(--bg-color);
+    padding-top: 20px;
+    border-radius: 8px 8px 0px 0px;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems2 .invoiceDetailsBottomBottomItems2Left h4 {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    color: var(--text-color);
+    margin: 0 0;
+  }
+  .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomBottom .invoiceDetailsBottomBottomItems2 .invoiceDetailsBottomBottomItems2Left p {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    color: var(--p-purple);
+  }
+  .invoiceDetails .invoiceDetailsButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--invoice-bg);
+    margin: 50px 0;
+    padding: 25px 15px;
   }
 }/*# sourceMappingURL=global.css.map */

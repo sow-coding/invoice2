@@ -12,7 +12,7 @@ const league = League_Spartan({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "InvManage",
-  description: "SaaS to manage invocies",
+  description: "SaaS to manage invoices",
 };
 
 export default function RootLayout({

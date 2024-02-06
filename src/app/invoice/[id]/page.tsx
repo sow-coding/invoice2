@@ -98,7 +98,7 @@ function Page() {
         
         </div>
             <div className={`invoiceDetailsBottomBottom`}>
-              <div className={`invoicesDetailsBottomBottomItems`}>
+              <div className={`invoiceDetailsBottomBottomItems`}>
               {invoiceData?.items.map((item, index) => (
               <div key={index} className={`invoiceDetailsBottomBottomTop`}>
                 <div className={`invoiceDetailsBottomBottomTopLeft`}>
@@ -109,7 +109,7 @@ function Page() {
                   <div className={`quantity`}>
                     <p>QTY.</p>
                     <h4>{item.quantity}</h4>
-                  </div>
+                </div>
                   <div className={`price`}>
                     <p>Price</p>
                     <h4>{item.price}</h4>
@@ -122,14 +122,20 @@ function Page() {
               </div>
               ))}
               </div>
-              <div className={`invoiceDetailsButtons`}>
-                <div className={`invoiceDetailsButtonsLeft`}>
-                  <EditBtn invoiceData={invoiceData} setEditForm={setEditForm}/>
-                </div>
-                <div className={`invoiceDetailsButtonsRight`}>
-                  <DeleteBtn setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>
-                  <MarkAsPaidBtn />
-                </div>
+              <div className="invoiceDetailsBottomBottomItems2">
+                {invoiceData?.items.map((item,index) => (
+                  <div className="invoiceDetailsBottomBottomItems2Left" key={index}>
+                    <h4>{item.name}</h4>
+                    <p>{item.quantity} x {item.price} €</p>
+                  </div>
+                ))}
+                {
+                  invoiceData?.items.map((item, index) => (
+                  <div className="invoiceDetailsBottomBottomItems2Right" key={index}>
+                    <h4>{item.total}€</h4>
+                  </div>
+                  ))
+                }
               </div>
               <div className={`invoiceDetailsBottomBottomBottom`}>
                 <p>Amont Due</p>
@@ -139,6 +145,11 @@ function Page() {
       </div>
       {deleteInvoiceDisplayed && <DeleteInvoice invoiceData={invoiceData} setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>}
       {editForm && <EditForm invoiceData={invoiceData} setEditForm={setEditForm} />}
+      <div className={`invoiceDetailsButtons`}>
+        <EditBtn invoiceData={invoiceData} setEditForm={setEditForm}/>
+        <DeleteBtn setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>
+        <MarkAsPaidBtn />
+      </div>
     </div>
   )
 }

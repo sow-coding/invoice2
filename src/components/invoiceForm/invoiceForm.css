@@ -32,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--invoice-bg);
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 100vh;
   border-radius: 0px 0px 0px 0px;
   z-index: -1;
@@ -57,7 +57,7 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
-  line-height: 15px; /* 115.385% */
+  line-height: 15px;
   letter-spacing: -0.1px;
 }
 .invoiceFormContainer .invoiceForm .formTitle {
@@ -65,7 +65,7 @@
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 32px; /* 133.333% */
+  line-height: 32px;
   letter-spacing: -0.5px;
 }
 .invoiceFormContainer .invoiceForm .invoiceFormTop {
@@ -79,7 +79,7 @@
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
-  line-height: 15px; /* 100% */
+  line-height: 15px;
   letter-spacing: -0.25px;
 }
 .invoiceFormContainer .invoiceForm .invoiceFormTop .billFromTop {
@@ -135,7 +135,7 @@
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
-  line-height: 15px; /* 100% */
+  line-height: 15px;
   letter-spacing: -0.25px;
 }
 .invoiceFormContainer .invoiceForm .invoiceFormCenter .billToTop input {
@@ -435,6 +435,43 @@
   display: none;
 }
 
+@media (max-width: 1020px) {
+  .calc {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  .invoiceFormContainer {
+    width: 100%;
+    height: 100%;
+  }
+  .invoiceFormContainer .sideBar {
+    display: none;
+  }
+  .invoiceFormContainer .invoiceForm {
+    width: 100%;
+    height: 100%;
+    margin: 5px 0;
+  }
+  .invoiceFormContainer .invoiceForm .itemList {
+    margin-bottom: 20px !important;
+  }
+  .invoiceFormContainer .invoiceForm .formButtons {
+    display: none;
+  }
+  .invoiceFormContainer .invoiceForm .formButtons2 {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1;
+    border-radius: 0px 20px 20px 0px;
+    background: var(--invoice-bg);
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+}
 @media (max-width: 375px) {
   .billFromBottom {
     display: none !important;
@@ -610,11 +647,6 @@
     cursor: pointer;
   }
 }
-@media (max-width: 1020px) {
-  .invoiceForm {
-    overflow: hidden;
-  }
-}
 @media (max-width: 660px) {
   .itemQuantityInput input {
     width: 44px;
@@ -623,68 +655,6 @@
     margin-right: 7px !important;
   }
 }
-@media (max-width: 1020px) {
-  .calc {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-  }
-  .invoiceFormContainer {
-    width: 100%;
-    height: 100%;
-  }
-  .invoiceFormContainer .sideBar {
-    display: none;
-  }
-  .invoiceFormContainer .invoiceForm {
-    width: 100%;
-    height: 100%;
-    margin: 5px 0;
-  }
-  .invoiceFormContainer .invoiceForm .itemList {
-    margin-bottom: 20px !important;
-  }
-  .invoiceFormContainer .invoiceForm .formButtons {
-    display: none;
-  }
-  .invoiceFormContainer .invoiceForm .formButtons2 {
-    position: relative;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    z-index: 1;
-    border-radius: 0px 20px 20px 0px;
-    background: var(--invoice-bg);
-    padding-top: 20px;
-    margin-bottom: 30px;
-  }
-}
-/*@media (max-width: 635px) {
-    .invoiceFormContainer {
-        & .invoiceForm {
-            margin: 5px 0;
-            & .itemList {
-                margin-bottom: 20px!important;
-            }
-            & .formButtons {
-                display: none;
-            }
-            & .formButtons2 {
-                position: relative;
-                bottom: 0;
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                z-index: 1;
-                border-radius: 0px 20px 20px 0px;
-                background: var(--invoice-bg);
-                padding-top: 20px;
-                margin-bottom: 30px;
-            }
-        }
-    }
-}*/
 @media (max-width: 475px) {
   .invoiceFormContainer .invoiceForm {
     padding: 20px 10px;
