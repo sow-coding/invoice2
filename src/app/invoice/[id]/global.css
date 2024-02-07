@@ -10,6 +10,14 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.relative {
+  position: relative !important;
+}
+
+.displayNone {
+  display: none !important;
+}
+
 .overflowYHidden {
   overflow-y: hidden;
 }
@@ -412,7 +420,7 @@
   }
   .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft {
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0 0;
   }
   .invoiceDetails .invoiceDetailsBottom .invoiceDetailsBottomCenter .invoiceDetailsBottomCenterLeft .invoiceDetailsBottomCenterLeftRight {

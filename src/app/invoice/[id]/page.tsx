@@ -43,7 +43,7 @@ function Page() {
     }, []);
     return (
     <div className={`invoiceDetails ${(overflowYHidden && editForm) && "overflowYHidden"}`} data-theme={theme}>
-      <div className={`invoiceDetailsTop`}>
+      <div className={`invoiceDetailsTop ${(overflowYHidden && editForm) && "displayNone"}`}>
         <div className={`back`} onClick={() => {
             router.push("/")
         }}>
@@ -53,7 +53,7 @@ function Page() {
         <p>Go back</p>        
         </div>
       </div>
-      <div className={`invoiceDetailsCenter`}>
+      <div className={`invoiceDetailsCenter ${(overflowYHidden && editForm) && "displayNone"}`}>
         <div className={`invoiceDetailsCenterLeft`}>
           <p>Status</p>
           {invoiceData?.status === "pending" && <Pending/>}
@@ -67,7 +67,7 @@ function Page() {
           {invoiceData?.status != "draft" && <MarkAsPaidBtn />}
         </div>
       </div>
-      <div className={`invoiceDetailsBottom`}>
+      <div className={`invoiceDetailsBottom ${(overflowYHidden && editForm) && "displayNone"}`}>
         
         <div className={`invoiceDetailsBottomTop`}>
           <div className={`invoiceDetailsBottomTopLeft`}>
@@ -159,13 +159,13 @@ function Page() {
               </div>
             </div>           
       </div>
-      {deleteInvoiceDisplayed && <DeleteInvoice invoiceData={invoiceData} setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>}
-      {editForm && <EditForm invoiceData={invoiceData} setEditForm={setEditForm} />}
-      <div className={`invoiceDetailsButtons`}>
+      <div className={`invoiceDetailsButtons ${(overflowYHidden && editForm) && "displayNone"}`}>
         <EditBtn invoiceData={invoiceData} setEditForm={setEditForm}/>
         <DeleteBtn setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>
         <MarkAsPaidBtn />
       </div>
+      {deleteInvoiceDisplayed && <DeleteInvoice invoiceData={invoiceData} setDeleteInvoiceDisplayed={setDeleteInvoiceDisplayed}/>}
+      {editForm && <EditForm invoiceData={invoiceData} setEditForm={setEditForm} />}
     </div>
   )
 }

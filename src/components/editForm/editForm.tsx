@@ -1,5 +1,5 @@
 "use client"
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import SideBar from '../sideBar/sideBar'
 import { choice, invoiceType, item } from '@/app/page';
 import SaveChanges from '../buttons/saveChanges/saveChanges';
@@ -55,8 +55,24 @@ function EditForm(props: EditFormProps) {
         price: total,
         projectDescription: projectDescription 
     }
+    const [relative, setRelative] = useState<boolean>(false)
+    useEffect(() => {
+        const handleResize = () => {
+          if (window.innerWidth <= 1021) {
+            setRelative(true);
+          } else {
+            setRelative(false);
+          }
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
     return (
-    <div className="calc2" onClick={() => {props.setEditForm(false)}}>
+    <div className={`calc2 ${relative && "relative"}`} onClick={() => {props.setEditForm(false)}}>
         <div className="invoiceFormContainer">
             <SideBar position='relative'/>
             <form className={`invoiceForm`} onClick={(e) => {e.stopPropagation(), setPaymentTermsDowned(false)}}>
