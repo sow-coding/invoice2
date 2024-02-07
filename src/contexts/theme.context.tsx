@@ -1,26 +1,32 @@
 "use client"
-import { Dispatch, SetStateAction, createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useCustomHook } from "@/app/page";
 
-type Theme = "light" |"dark"
+export type Theme = "light" |"dark"
 
 type ThemeContext = {
     theme: Theme;
-    setTheme: Dispatch<SetStateAction<Theme>>;
+    setTheme: (theme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContext | null>(null)
 
-export default function ThemeContextProvider ({children}:useCustomHook) {
-    const [theme, setTheme] = useState<Theme>("light")
+export default function ThemeContextProvider({ children }: useCustomHook) {
+    const [theme, setThemeState] = useState<Theme>(() => {
+      const storedTheme = localStorage.getItem("theme");
+      return storedTheme ? (storedTheme as Theme) : "light";
+    });
+  
+    const setTheme = (theme: Theme) => {
+      localStorage.setItem("theme", theme);
+      setThemeState(theme);
+    };
+  
     return (
-        <ThemeContext.Provider value={{
-            theme: theme,
-            setTheme: setTheme
-        }}>
-            {children}
-        </ThemeContext.Provider>
-    )
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    );
 }
 
 export function useThemeContext () {

@@ -1,16 +1,23 @@
 "use client"
-import { Dispatch, SetStateAction, createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { invoices, useCustomHook } from "@/app/page";
 
 interface InvoicesContext {
     invoices: invoices;
-    setInvoices: Dispatch<SetStateAction<invoices>>;
+    setInvoices: (invoices: invoices) => void;
 }
 
 export const InvoicesContext = createContext<InvoicesContext | null>(null)
 
 export default function InvoicesContextProvider ({children}: useCustomHook) {
-    const [invoices, setInvoices] = useState<invoices>([])
+    const [invoices, setInvoicesState] = useState<invoices>(() => {
+        const invoicesSaved = localStorage.getItem("invoices")
+        return invoicesSaved ? JSON.parse(invoicesSaved) : []
+    })
+    const setInvoices = (invoices: invoices) => {
+        localStorage.setItem("invoices", JSON.stringify(invoices))
+        setInvoicesState(invoices)
+    }
     return (
         <InvoicesContext.Provider value={{
             invoices: invoices,

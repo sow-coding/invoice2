@@ -16,6 +16,7 @@ function DeleteInvoice(props:deleteInvoiceProps) {
   const {theme} = useThemeContext()
   const {invoices, setInvoices} = useInvoicesContext()
   const {invoiceIndex} = useInvoiceIndexContext()
+  
   return (
     <div className={`deleteConfirmationContainer`} data-theme={theme} onClick={() => {
       props.setDeleteInvoiceDisplayed(false)

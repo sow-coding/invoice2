@@ -1,7 +1,7 @@
 "use client"
 import { useInvoicesContext } from '@/contexts/invoices.context'
 import { useParams, useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./global.css"
 import Pending from '@/components/status/pending/pending'
 import Draft from '@/components/status/draft/draft'
@@ -25,8 +25,24 @@ function Page() {
     const [deleteInvoiceDisplayed, setDeleteInvoiceDisplayed] = useState<boolean>(false)
     const {theme} = useThemeContext()
     const [editForm, setEditForm] = useState<boolean>(false)
+    const [overflowYHidden, setOverflowYHidden] = useState<boolean>(false)
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth <= 1021) {
+          setOverflowYHidden(true);
+        } else {
+          setOverflowYHidden(false);
+        }
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
     return (
-    <div className={`invoiceDetails`} data-theme={theme}>
+    <div className={`invoiceDetails ${(overflowYHidden && editForm) && "overflowYHidden"}`} data-theme={theme}>
       <div className={`invoiceDetailsTop`}>
         <div className={`back`} onClick={() => {
             router.push("/")

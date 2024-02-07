@@ -4,6 +4,7 @@ import InvoicesApp from "@/components/invoicesApp/invoicesApp";
 import SideBar from "@/components/sideBar/sideBar";
 import { useFilterDisplayedContext } from "@/contexts/filterDisplayed.context";
 import { useInvoiceFormContext } from "@/contexts/invoiceForm.context";
+import { useInvoicesContext } from "@/contexts/invoices.context";
 import { useThemeContext } from "@/contexts/theme.context";
 import { useEffect, useState } from "react";
 
@@ -42,9 +43,6 @@ export interface item {
 }
 type sidebarPosition = "static" | "relative" | "absolute" | "sticky" | "fixed";
 
-//TODO: regler probleme light/dark mode non syncro avec body
-//TODO: localStorage l'array invoices et theme
-
 export default function Home() {
   const {theme} = useThemeContext()
   const {setFilterDisplayed} = useFilterDisplayedContext()
@@ -81,6 +79,9 @@ export default function Home() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  useEffect(() => {
+    document.body.dataset.theme = theme;
+  }, [theme]);
   return (
     <div className={`home ${(invoiceFormDisplayed && displayNone) && "overflowYHidden"}`} data-theme={theme} onClick={() => {
       setFilterDisplayed(false)

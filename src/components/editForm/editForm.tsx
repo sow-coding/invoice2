@@ -56,7 +56,7 @@ function EditForm(props: EditFormProps) {
         projectDescription: projectDescription 
     }
     return (
-    <div className="calc" onClick={() => {props.setEditForm(false)}}>
+    <div className="calc2" onClick={() => {props.setEditForm(false)}}>
         <div className="invoiceFormContainer">
             <SideBar position='relative'/>
             <form className={`invoiceForm`} onClick={(e) => {e.stopPropagation(), setPaymentTermsDowned(false)}}>
