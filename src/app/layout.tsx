@@ -7,6 +7,7 @@ import FilterDisplayedContextProvider from "@/contexts/filterDisplayed.context";
 import InvoiceFormContextProvider from "@/contexts/invoiceForm.context";
 import InvoiceIndexProvider from "@/contexts/invoiceIndex.context";
 import FilterContextProvider from "@/contexts/filter.context";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const league = League_Spartan({ subsets: ["latin"] });
 
