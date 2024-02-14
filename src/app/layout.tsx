@@ -31,6 +31,7 @@ export default function RootLayout({
         <InvoiceIndexProvider>
         <FilterContextProvider>
           {children}
+          <SpeedInsights />
         </FilterContextProvider>
         </InvoiceIndexProvider>
         </InvoiceFormContextProvider>
